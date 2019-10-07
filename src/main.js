@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import logo from './logo.svg';
 import { connect } from 'react-redux';
+import { refreshPaging } from "./redux/reducers";
 class Homepage extends Component {
+  componentDidMount() {
+    this.props.refreshPaging();
+    console.log(this.props.contentlist);
+  }
 
     render(){
       return(
@@ -24,9 +29,11 @@ class Homepage extends Component {
 
 const mapStateToProps = state => {
     return {
-      testredux: state.testredux
+      testredux: state.testredux,
+      contentlist: state.contentlist
     };
   };
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    { refreshPaging }
   )(Homepage);

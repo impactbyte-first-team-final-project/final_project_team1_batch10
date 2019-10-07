@@ -9,7 +9,7 @@ const initialState = {
   testredux:"Hello From Redux"
 };
 export const refreshPaging = () => dispatch => {
-  axios.get(`https://my-mysql-api.herokuapp.com/content`).then(res => {
+  axios.get(`https://my-mysql-api.herokuapp.com/content/testget`).then(res => {
         dispatch( {
       type: "FETCH_DATA",
       payload: res.data.result
