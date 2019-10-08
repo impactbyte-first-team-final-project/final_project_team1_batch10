@@ -69,6 +69,8 @@ function SignIn(props) {
           name="pass_user"
           placeholder=""
           onChange={handleChange}
+          invalid={value.prm_pass_stat === "invalid" ? true : false}
+          valid={value.prm_pass_stat === "valid" ? true : false}
         />
       </FormGroup>
       <Button className="btn-block" onClick={handleSubmit}>
