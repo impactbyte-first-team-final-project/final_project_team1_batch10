@@ -1,35 +1,47 @@
 import React, { useState } from "react";
+import axios from "axios"; 
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 export default function SignUp(props) {
     
   const [value, setValue] = useState({
-    fullName: "",
+    namauser: "",
     email: "",
     gender: "",
-    bloodType: "",
-    password: "",
-    repassword: "",
-    
+    bloodtype: "",
+    passuser: ""
   });
 
   function handleSubmit(event) {
     event.preventDefault();
   
     if (
-      value.fullName === "" ||
+      value.namauser === "" ||
       value.email === "" ||
       value.gender === "" ||
-      value.bloodType === "" ||
-      value.password === "" ||
+      value.bloodtype === "" ||
+      value.passuser === "" ||
       value.repassword === ""
     ) {
       alert("Please complete fill the form");
     } else if (value.password !== value.repassword) {
       alert("Password didn/t match, please Re-type your password!");
     } else {
-      props.history.push("/");
+      axios
+      .post(`https://my-mysql-api.herokuapp.com/user`, value, {
+        headers: {
+          "Access-Control-Allow-Origin": '*'
+        }
+      })
+      .then(result => {
+        console.log(result);
+      })
+      .then(() => {props.history.push("/")})
+      .catch(error => {
+        console.log(error);
+      });
     }
+    console.log(value)
   }
 
   function handleChange(event) {
