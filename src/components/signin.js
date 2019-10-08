@@ -19,7 +19,7 @@ function SignIn(props) {
         }
       })
       .then(result => {
-        console.log(result.data.message);
+        console.log(result);
         if(result.data.message=="Akun tidak ditemukan"){
           setValue({
             ...value,
