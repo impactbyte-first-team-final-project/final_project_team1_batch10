@@ -1,15 +1,27 @@
 import React from "react";
-import "./App.css";
-import "./assets/font-awesome/css/font-awesome.min.css";
-import Homepage from "./main";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//komponen halaman
+import Registrasi from "./pages/registrasi";
+import Login from "./pages/login";
+import LupaPassword from "./pages/lupa-password";
+import NotFound from "./pages/404";
+import Private from "./pages/private";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Homepage />
-    </Provider>
+    <Router>
+      <Switch>
+        <PrivateRoute path="/" exact component={Private} />
+        <PrivateRoute path="/pengaturan" component={Private} />
+        <PrivateRoute path="/kegiatan" component={Private} />
+        <PrivateRoute path="/follow" component={Private} />
+        <Route path="/registrasi" component={Registrasi} />
+        <Route path="/login" component={Login} />
+        <Route path="/lupa-password" component={LupaPassword} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
