@@ -25,7 +25,7 @@ export default function SignUp(props) {
       value.repassword === ""
     ) {
       alert("Please complete fill the form");
-    } else if (value.password !== value.repassword) {
+    } else if (value.passuser !== value.repassword) {
       alert("Password didn/t match, please Re-type your password!");
     } else {
       axios
