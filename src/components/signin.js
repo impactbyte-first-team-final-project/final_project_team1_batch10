@@ -18,7 +18,8 @@ function SignIn(props) {
           "Access-Control-Allow-Origin": "*"
         }
       })
-      .then(result => {alert(result.data.message)
+      .then(result => {
+        console.log(result.data.message);
         if(result.data.message=="Akun tidak ditemukan"){
           setValue({
             ...value,
