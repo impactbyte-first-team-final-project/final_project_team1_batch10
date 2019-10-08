@@ -32,11 +32,13 @@ function SignIn(props) {
             prm_pass_stat:"invalid"
           });
         } else {
-          this.props.dispatch({ type: 'LOGIN' });
+          props.dispatch({ type: 'LOGIN' });
+          console.log(props);
         }
       })
       .catch(error => {
         console.log(error);
+        console.log(props);
       });
   }
 
