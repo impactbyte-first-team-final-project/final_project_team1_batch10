@@ -36,7 +36,7 @@ export default function SignUp(props) {
       .then(result => {
         console.log(result);
       })
-      .then(() => {props.history.push("/")})
+      // .then(() => {props.history.push("/")})
       .catch(error => {
         console.log(error);
       });
@@ -61,25 +61,25 @@ export default function SignUp(props) {
   function handleBlood(event) {
     setValue({
       ...value,
-      bloodType: event.target.value
+      bloodtype: event.target.value
     });
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label for="fullName">Full Name</Label>
+        <Label for="namauser">Full Name</Label>
         <Input
           type="text"
-          name="fullName"
-          id="fullName"
+          name="namauser"
+          id="namauser"
           placeholder="e.g Nikita Khrushchev"
           onChange={handleChange}
-          defaultValue = {setValue.fullName}
+          defaultValue = {setValue.namauser}
         />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleEmail">Email</Label>
+        <Label for="email">Email</Label>
         <Input
           type="email"
           name="email"
@@ -117,14 +117,14 @@ export default function SignUp(props) {
         </FormGroup>
         <FormGroup tag="fieldset">
           <br />
-          <Label for="bloodType">Blood Type</Label>
+          <Label for="bloodtype">Blood Type</Label>
           <FormGroup check>
             <Label check>
               <Input
                 type="radio"
                 name="A"
                 value="A"
-                checked={value.bloodType === "A"}
+                checked={value.bloodtype === "A"}
                 onChange={handleBlood}
               />
               A
@@ -136,7 +136,7 @@ export default function SignUp(props) {
                 type="radio"
                 name="B"
                 value="B"
-                checked={value.bloodType === "B"}
+                checked={value.bloodtype === "B"}
                 onChange={handleBlood}
               />
               B
@@ -148,7 +148,7 @@ export default function SignUp(props) {
                 type="radio"
                 name="O"
                 value="O"
-                checked={value.bloodType === "O"}
+                checked={value.bloodtype === "O"}
                 onChange={handleBlood}
               />
               O
@@ -160,7 +160,7 @@ export default function SignUp(props) {
                 type="radio"
                 name="AB"
                 value="AB"
-                checked={value.bloodType === "AB"}
+                checked={value.bloodtype === "AB"}
                 onChange={handleBlood}
               />
               AB
@@ -172,7 +172,7 @@ export default function SignUp(props) {
                 type="radio"
                 name="notSure"
                 value="notSure"
-                checked={value.bloodType === "notSure"}
+                checked={value.bloodtype === "notSure"}
                 onChange={handleBlood}
               />
               Not Sure
@@ -181,14 +181,14 @@ export default function SignUp(props) {
         </FormGroup>
 
         <FormGroup>
-          <Label for="password">Password</Label>
+          <Label for="passuser">Password</Label>
           <Input
-            type="password"
-            name="password"
-            id="password"
+            type="passuser"
+            name="passuser"
+            id="passuser"
             placeholder=""
             onChange={handleChange}
-            defaultValue = {setValue.password}
+            defaultValue = {setValue.passuser}
           />
         </FormGroup>
         <FormGroup>
