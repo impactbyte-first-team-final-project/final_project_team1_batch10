@@ -9,7 +9,8 @@ export default function SignUp(props) {
     email: "",
     gender: "",
     bloodtype: "",
-    passuser: ""
+    passuser: "",
+    repassword:""
   });
 
   function handleSubmit(event) {
@@ -181,7 +182,7 @@ export default function SignUp(props) {
         </FormGroup>
 
         <FormGroup>
-          <Label for="passuser">Password</Label>
+          <Label for="password">Password</Label>
           <Input
             type="password"
             name="passuser"
