@@ -183,7 +183,7 @@ export default function SignUp(props) {
         <FormGroup>
           <Label for="passuser">Password</Label>
           <Input
-            type="passuser"
+            type="password"
             name="passuser"
             id="passuser"
             placeholder=""
