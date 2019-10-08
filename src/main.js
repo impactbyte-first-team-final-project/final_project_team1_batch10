@@ -5,6 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import image1 from "./assets/img/1.jpg";
 import image2 from "./assets/img/2.jpg";
 import image3 from "./assets/img/3.jpg";
+import ModalSign from "./components/modal_sign" 
 class Homepage extends Component {
   render() {
     return (
@@ -19,6 +20,7 @@ class Homepage extends Component {
           >
             Learn React{this.props.testredux}
           </a>
+          <ModalSign />
         </header>
         <Carousel>
           <Carousel.Item>
