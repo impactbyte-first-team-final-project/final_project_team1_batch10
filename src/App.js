@@ -14,9 +14,9 @@ function App() {
   return (
     <Provider store={store}>
       <Homepage />
-      <Router>
+      {/* <Router>
         {<Route path="/tabs" exact component={TabsSign} />}
-      </Router>
+      </Router> */}
      </Provider>
   );
 }
