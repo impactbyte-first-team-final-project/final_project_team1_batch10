@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"; 
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
+
 export default function SignUp(props) {
     
   const [value, setValue] = useState({
@@ -35,9 +36,11 @@ export default function SignUp(props) {
         }
       })
       .then(result => {
-        console.log(result);
+        alert(`Akun anda berhasil terdaftar, silahkan lakukan sign in!`)
+          props.toggle("1");
+     
+
       })
-      // .then(() => {props.history.push("/")})
       .catch(error => {
         console.log(error);
       });

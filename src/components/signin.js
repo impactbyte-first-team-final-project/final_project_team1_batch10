@@ -6,8 +6,7 @@ export default function SignIn(props) {
   const [value, setValue] = useState({ email: "", passuser: "" });
 
   function handleSubmit(event) {
-    event.preventDefault(props);
-   
+    event.preventDefault(props)
   }
 
   function handleChange(event) {

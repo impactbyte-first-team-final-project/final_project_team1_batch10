@@ -73,7 +73,7 @@ export default class TabsSign extends React.Component {
             <Row>
               <Col sm="12">
                   <br />
-                <SignUp />
+                <SignUp toggle={this.toggle}/>
               </Col>
             </Row>
           </TabPane>
