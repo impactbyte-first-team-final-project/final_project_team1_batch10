@@ -1,19 +1,39 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { connect } from 'react-redux';
 
-export default function SignIn(props) {
-  const [value, setValue] = useState({ prm_akun: "", pass_user: "" });
+function SignIn(props) {
+  const [value, setValue] = useState({ prm_akun: "", pass_user: "", prm_akun_stat:"",prm_pass_stat:""});
 
   function handleSubmit(event) {
     event.preventDefault();
+    const sendlogin = {
+      prm_akun: value.prm_akun,
+      pass_user: value.pass_user
+    }
     axios
-      .post(`https://my-mysql-api.herokuapp.com/user/login`, value, {
+      .post(`https://my-mysql-api.herokuapp.com/user/login`, sendlogin, {
         headers: {
           "Access-Control-Allow-Origin": "*"
         }
       })
-      .then(result => alert(result.data.message))
+      .then(result => {alert(result.data.message)
+        if(result.data.message=="Akun tidak ditemukan"){
+          setValue({
+            ...value,
+            prm_akun_stat: "invalid"
+          });
+        } else if(result.data.message=="password is invalid"){
+          setValue({
+            ...value,
+            prm_akun_stat: "valid",
+            prm_pass_stat:"invalid"
+          });
+        } else {
+          this.props.dispatch({ type: 'LOGIN' });
+        }
+      })
       .catch(error => {
         console.log(error);
       });
@@ -35,6 +55,8 @@ export default function SignIn(props) {
           name="prm_akun"
           placeholder=""
           onChange={handleChange}
+          invalid={value.prm_akun_stat === "invalid" ? true : false}
+          valid={value.prm_akun_stat === "valid" ? true : false}
         />
       </FormGroup>
       <FormGroup>
@@ -52,3 +74,4 @@ export default function SignIn(props) {
     </Form>
   );
 }
+export default connect()(SignIn);

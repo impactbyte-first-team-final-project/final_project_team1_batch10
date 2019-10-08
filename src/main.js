@@ -18,7 +18,7 @@ class Homepage extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React{this.props.testredux}
+            Learn React {this.props.testredux}
           </a>
           <ModalSign />
         </header>
