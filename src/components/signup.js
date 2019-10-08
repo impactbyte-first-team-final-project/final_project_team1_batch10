@@ -45,7 +45,6 @@ export default function SignUp(props) {
         console.log(error);
       });
     }
-    console.log(value)
   }
 
   function handleChange(event) {
