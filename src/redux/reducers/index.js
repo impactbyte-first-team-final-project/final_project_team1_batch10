@@ -9,7 +9,7 @@ const initialState = {
   testredux:"Hello From Redux"
 };
 export const refreshPaging = () => dispatch => {
-  axios.get(`https://my-mysql-api.herokuapp.com/content`).then(res => {
+  axios.get(`https://my-mysql-api.herokuapp.com/content/testget`).then(res => {
         dispatch( {
       type: "FETCH_DATA",
       payload: res.data.result
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action = {}) => {
     case "MODAL_LOGIN":
       return { ...state, modalLogin: !state.modalLogin };
     case "LOGIN":
-      return { ...state, modalLogin: false, islogin: true };
+      return { ...state, testredux: "you have been loged in" };
     case "LOGOUT":
       return { ...state, islogin: false };
     case "FETCH_DATA":
