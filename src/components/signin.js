@@ -12,6 +12,7 @@ function SignIn(props) {
       prm_akun: value.prm_akun,
       pass_user: value.pass_user
     }
+    props.dispatch({ type: 'LOADINGTOGGLE' });
     axios
       .post(`https://my-mysql-api.herokuapp.com/user/login`, sendlogin, {
         headers: {
@@ -20,20 +21,33 @@ function SignIn(props) {
       })
       .then(result => {
         console.log(result);
-        if(result.data.message=="Akun tidak ditemukan"){
+        if(result.data.message==="Akun tidak ditemukan"){
           setValue({
             ...value,
             prm_akun_stat: "invalid"
           });
-        } else if(result.data.message=="password is invalid"){
+          props.dispatch({ type: 'LOADINGTOGGLE' });
+          alert(result.data.message);
+        } else if(result.data.message==="password is invalid"){
           setValue({
             ...value,
             prm_akun_stat: "valid",
             prm_pass_stat:"invalid"
           });
+          props.dispatch({ type: 'LOADINGTOGGLE' });
+          alert(result.data.message);
         } else {
+          props.dispatch({ type: 'LOADINGTOGGLE' });
+          alert(result.data.message);
+          props.dispatch({ type: 'MODAL_LOGIN' });
           props.dispatch({ type: 'LOGIN' });
           console.log(props);
+          setValue({
+            prm_akun: "",
+            pass_user: "",
+            prm_akun_stat: "",
+            prm_pass_stat:""
+          });
         }
       })
       .catch(error => {
@@ -48,7 +62,6 @@ function SignIn(props) {
       [event.target.name]: event.target.value
     });
   }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
