@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from 'react-redux';
 import 
 { Button, 
     Modal, 
-    // ModalHeader, 
+    ModalHeader, 
     ModalBody, 
     // ModalFooter 
 } from "reactstrap";
@@ -27,15 +28,11 @@ class ModalSign extends React.Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>
-          {this.props.buttonLabel}
-        </Button>
         <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
+          isOpen={this.props.modalLogin}
         >
-          <ModalBody toggle={this.toggle}>
+          <ModalHeader toggle={() => {this.props.dispatch({ type: 'MODAL_LOGIN' })}}></ModalHeader>
+          <ModalBody>
             <TabsSign />
           </ModalBody>
         </Modal>
@@ -43,5 +40,12 @@ class ModalSign extends React.Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    modalLogin: state.signInReducer.modalLogin
+  };
+};
 
-export default ModalSign;
+export default connect(
+  mapStateToProps
+)(ModalSign);
