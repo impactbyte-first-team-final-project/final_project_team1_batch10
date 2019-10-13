@@ -33,7 +33,7 @@ class NavHeader extends React.Component {
         return (
         <div>
             <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{color:"#fff"}}>reactstrap</NavbarBrand>
+            <NavbarBrand href="/" style={{color:"#fff"}}>BLOODDONORS</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
@@ -56,7 +56,7 @@ class NavHeader extends React.Component {
         return (
         <div>
             <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{color:"#fff"}}>reactstrap</NavbarBrand>
+            <NavbarBrand href="/" style={{color:"#fff"}}>BLOODDONORS</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>

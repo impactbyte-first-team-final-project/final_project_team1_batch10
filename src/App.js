@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
 import Homepage from "./components/main";
+import EventsCard from "./components/EventsCard";
 import NavHeader from "./components/navheader";
 import Footer from "./components/footer";
 import ModalLoading from "./components/loading";
@@ -21,6 +22,7 @@ function App() {
       <ModalLoading />
       <NavHeader />
       <Homepage />
+      <EventsCard />
       <Footer />
       {/* <Router>
         {<Route path="/tabs" exact component={TabsSign} />}

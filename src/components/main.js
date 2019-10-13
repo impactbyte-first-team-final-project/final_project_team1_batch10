@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import logo from "../logo.svg";
 import { connect } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "../assets/img/1.jpg";
-import image2 from "../assets/img/2.jpg";
-import image3 from "../assets/img/3.jpg";
-import ModalSign from "./modal_sign" 
+
 class Homepage extends Component {
   render() {
     return (
@@ -34,17 +30,6 @@ class Homepage extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React {this.props.testredux}
-          </a>
-        </header>
       </div>
     );
   }

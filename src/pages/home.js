@@ -62,17 +62,6 @@ class Homepage extends Component {
           </Carousel.Caption>
         </Carousel.Item> */}
       </Carousel>
-        <header className="App-header">
-          <img src={image1} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React {this.props.testredux}
-          </a>
-        </header>
       </div>
     );
   }
