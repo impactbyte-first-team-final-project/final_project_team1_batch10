@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
+import NavigationBar from "./components/NavigationBar";
 import Homepage from "./pages/home";
 import EventPage from "./pages/events";
 import NewsPage from "./pages/news";
@@ -11,6 +12,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
+        <NavigationBar />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/events" component={EventPage} />

@@ -20,12 +20,12 @@ function SignIn(props) {
       })
       .then(result => {
         console.log(result);
-        if(result.data.message=="Akun tidak ditemukan"){
+        if(result.data.message="Akun tidak ditemukan"){
           setValue({
             ...value,
             prm_akun_stat: "invalid"
           });
-        } else if(result.data.message=="password is invalid"){
+        } else if(result.data.message="password is invalid"){
           setValue({
             ...value,
             prm_akun_stat: "valid",
