@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import { connect } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
 import image1 from "./assets/img/1.jpg";
@@ -80,8 +79,14 @@ class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
+<<<<<<< HEAD:src/main.js
     return {
       testredux: state.reducer.testredux
     };
+=======
+  return {
+    testredux: state.testredux
+>>>>>>> fc9524bd6f49f3031ae6613181d343048fdad5f2:src/pages/home.js
   };
+};
 export default connect(mapStateToProps)(Homepage);
