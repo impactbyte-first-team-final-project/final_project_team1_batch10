@@ -20,7 +20,6 @@ function SignIn(props) {
         }
       })
       .then(result => {
-        console.log(result);
         if(result.data.message==="Akun tidak ditemukan"){
           setValue({
             ...value,
@@ -37,11 +36,10 @@ function SignIn(props) {
           props.dispatch({ type: 'LOADINGTOGGLE' });
           alert(result.data.message);
         } else {
-          props.dispatch({ type: 'LOADINGTOGGLE' });
           alert(result.data.message);
+          props.dispatch({ type: 'LOADINGTOGGLE' });
           props.dispatch({ type: 'MODAL_LOGIN' });
           props.dispatch({ type: 'LOGIN' });
-          console.log(props);
           setValue({
             prm_akun: "",
             pass_user: "",

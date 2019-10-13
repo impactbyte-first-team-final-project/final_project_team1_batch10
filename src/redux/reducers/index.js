@@ -5,7 +5,7 @@ import signInReducer from './signIn'
 import loadingReducer from './loading'
 
 const initialState = {
-  islogin: false,
+  islogin: true,
   testStatea: 0,
   testStateb: 0,
   contentlist: [],
@@ -24,7 +24,7 @@ export const refreshPaging = () => dispatch => {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case "LOGIN":
-      return { ...state, testredux: "you have been loged in" };
+      return { ...state, islogin: true };
     case "LOGOUT":
       return { ...state, islogin: false };
     case "FETCH_DATA":
