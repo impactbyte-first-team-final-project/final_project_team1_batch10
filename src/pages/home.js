@@ -79,14 +79,8 @@ class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
-<<<<<<< HEAD:src/main.js
     return {
       testredux: state.reducer.testredux
     };
-=======
-  return {
-    testredux: state.testredux
->>>>>>> fc9524bd6f49f3031ae6613181d343048fdad5f2:src/pages/home.js
   };
-};
 export default connect(mapStateToProps)(Homepage);
