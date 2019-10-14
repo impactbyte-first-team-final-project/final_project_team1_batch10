@@ -1,0 +1,39 @@
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero1,
+.btn.btn-hero1:hover,
+.btn.btn-hero1:focus {  
+  color: #EB3349;  /* fallback for old browsers */
+  color: -webkit-linear-gradient(to right, #F45C43, #EB3349);  /* Chrome 10-25, Safari 5.1-6 */
+  color: linear-gradient(to right, #F45C43, #EB3349);
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    outline: none;
+    margin: 20px auto;
+}
+.btn.btn-hero2,
+.btn.btn-hero2:hover,
+.btn.btn-hero2:focus {  
+    color: #ffffff;
+    outline: none;
+    margin: 20px auto;
+}

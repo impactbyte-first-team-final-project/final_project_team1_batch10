@@ -34,7 +34,7 @@ class NavHeader extends React.Component {
         <div>
           <Navbar className="bgblooddonor" color="light" light expand="md">
             <NavbarBrand href="/" style={{ color: "#fff" }}>
-              reactstrap
+              BLOODDONORS
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
@@ -64,7 +64,7 @@ class NavHeader extends React.Component {
         <div>
           <Navbar className="bgblooddonor" color="light" light expand="md">
             <NavbarBrand href="/" style={{ color: "#fff" }}>
-              reactstrap
+              BLOODDONORS
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

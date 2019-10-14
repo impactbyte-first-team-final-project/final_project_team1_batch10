@@ -9,9 +9,6 @@ import {
 } from "reactstrap";
 
 class EventPage extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     let { id, name, company, description } = this.props.person;
     return (

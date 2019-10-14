@@ -1,17 +1,13 @@
 import React, { Component } from "react";
-import logo from "../logo.svg";
 import { connect } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "../assets/img/1.jpg";
-import image2 from "../assets/img/2.jpg";
-import image3 from "../assets/img/3.jpg";
-import ModalSign from "./modal_sign" 
+
 class Homepage extends Component {
   render() {
     return (
       <div>
         <Carousel>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/1.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"90vh",backgroundImage:"url(https://images2.minutemediacdn.com/image/upload/c_crop,h_1686,w_3000,x_0,y_157/f_auto,q_auto,w_1100/v1554703808/shape/mentalfloss/gettyimages-926597358.jpg)",backgroundSize:"cover"}}>
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -34,17 +30,6 @@ class Homepage extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React {this.props.testredux}
-          </a>
-        </header>
       </div>
     );
   }

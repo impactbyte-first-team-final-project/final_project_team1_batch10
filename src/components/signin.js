@@ -89,10 +89,11 @@ function SignIn(props) {
           valid={value.prm_pass_stat === "valid" ? true : false}
         />
       </FormGroup>
-      <Button className="btn-block" onClick={handleSubmit}>
+      <Button className="btn-block bgblooddonor" onClick={handleSubmit}>
         Submit
       </Button>
     </Form>
   );
 }
+
 export default connect()(SignIn);

@@ -84,6 +84,7 @@ class Homepage extends Component {
           </Carousel.Caption>
         </Carousel.Item> */}
       </Carousel>
+<<<<<<< HEAD
         <header className="App-header">
           <img src={image1} className="App-logo" alt="logo" />
           <a
@@ -96,6 +97,8 @@ class Homepage extends Component {
           </a>
         </header>
 >>>>>>> dba91040e83da7c51181ed85b074f2b4251318a9
+=======
+>>>>>>> 236faf9331cf31b2d4b43a296a3a5cfe3a495d05
       </div>
     );
   }

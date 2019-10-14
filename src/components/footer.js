@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col,NavbarBrand } from 'reactstrap';
 
 const Footer = (props) => {
   return (
-    <Container fluid="true" className="myfooter">
+    <Container fluid="true" className="bgblooddonor">
       <Row>
-        <Col xs="6">.col-6</Col>
-        <Col xs="6">.col-6</Col>
+        <Col className="justcontentleft itemaligncenter" xs="2"><NavbarBrand href="/" style={{color:"#fff"}}>BLOODDONORS</NavbarBrand></Col>
+        <Col className="justcontentleft itemaligncenter text-white" xs="10">© 2019 Copyright:<a className="text-white" href="https://blooddonors.com/"> MDBootstrap.com</a></Col>
       </Row>
     </Container>
   );
