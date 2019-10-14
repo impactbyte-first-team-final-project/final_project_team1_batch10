@@ -13,14 +13,14 @@ class Homepage extends Component {
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/2.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://eastsidemonthly.com/uploads/original/1448998045_38e4.jpg)",backgroundSize:"cover"}}>
 
             <Carousel.Caption>
               <h3>Second slide label</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/3.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"90vh",backgroundImage:"url(https://www.oist.jp/sites/default/files/photos/20130619_blooddrive_IMG_0137.jpg)",backgroundSize:"900px 600px", backgroundColor:"#ff9a4d", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
 
             <Carousel.Caption>
               <h3>Third slide label</h3>
