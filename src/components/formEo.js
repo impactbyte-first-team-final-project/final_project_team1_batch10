@@ -6,13 +6,16 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
-  Container
+  Container,
+  Card,
+  CardHeader
 } from "reactstrap";
-import { Badge, Row, Col } from "reactstrap";
-import Map from "./maps1";
+import { Row, Col } from "reactstrap";
+import {
+  Link
+} from "react-router-dom";
 
-export default function FormEo(props) {
+function FormEo(props) {
   const [value, setValue] = useState({
     namaevents: "",
     startdate: "",
@@ -95,164 +98,182 @@ export default function FormEo(props) {
   }
 
   return (
-    <Container style={{ marginTop: "3%", marginLeft: "32%" }}>
-      <h1 style={{ marginTop: "3%", marginLeft: "8%" }}>Sign Up Your Event</h1>
-      <br />
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label for="namaevents">Event Name</Label>
-          <Row>
-            <Col sm="6">
-              <Input
-                type="text"
-                name="namaevents"
-                placeholder="e.g Hammersonic Music festival"
-                onChange={handleChange}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <Row between="xs">
-          <Col xs={3}>
+    <div>
+    <Container fluid="true" className="pad4em centercontent">
+      <Row className="fullwidht">
+        <Col className="mrgbtm2em" xs="12">
+          <Card>
+              <CardHeader className="bgblooddonor">
+                  <div className="hero">        
+                      <hgroup>
+                          <h1>Sign Up Your Event</h1>        
+                      </hgroup>
+                  </div>
+              </CardHeader>
+          </Card>
+        </Col>
+        <Col xs="12">
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="startdate">Event Start Date</Label>
+              <Label for="namaevents">Event Name</Label>
               <Row>
-                <Col sm="12">
+                <Col xs="12">
                   <Input
-                    type="date"
-                    name="startdate"
-                    placeholder="date placeholder"
-                    onChange={handleDateStart}
+                    type="text"
+                    name="namaevents"
+                    placeholder="e.g Hammersonic Music festival"
+                    onChange={handleChange}
+                    block
                   />
                 </Col>
               </Row>
             </FormGroup>
-          </Col>
 
-          <Col xs={3}>
+            <Row between="xs">
+              <Col xs="12">
+                <FormGroup>
+                  <Label for="startdate">Event Start Date</Label>
+                  <Row>
+                    <Col xs="12">
+                      <Input
+                        type="date"
+                        name="startdate"
+                        placeholder="date placeholder"
+                        onChange={handleDateStart}
+                      />
+                    </Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+
+              <Col xs="12">
+                <FormGroup>
+                  <Label for="eenddate">Event Finish Date</Label>
+                  <Row>
+                    <Col xs="12">
+                      <Input
+                        type="date"
+                        name="enddate"
+                        placeholder="date placeholder"
+                        onChange={handleDateFinish}
+                      />
+                    </Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row between="xs">
+              <Col xs="12">
+                <FormGroup>
+                  <Label for="starttime">Event Start Time</Label>
+                  <Row>
+                    <Col xs="12">
+                      <Input
+                        type="time"
+                        name="startTime"
+                        placeholder="time placeholder"
+                        onChange={handleStartTime}
+                      />
+                    </Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+
+              <Col xs="12">
+                <FormGroup>
+                  <Label for="endtime">Event Finish Time</Label>
+                  <Row>
+                    <Col xs="12">
+                      <Input
+                        type="time"
+                        name="endtime"
+                        placeholder="time placeholder"
+                        onChange={handleFinishTime}
+                      />
+                    </Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+            </Row>
+
             <FormGroup>
-              <Label for="eenddate">Event Finish Date</Label>
+              <Label for="eventlocation">Event Location</Label>
               <Row>
-                <Col sm="12">
+                <Col xs="12">
                   <Input
-                    type="date"
-                    name="enddate"
-                    placeholder="date placeholder"
-                    onChange={handleDateFinish}
+                    type="textarea"
+                    name="eventlocation"
+                    onChange={handleChange}
                   />
                 </Col>
               </Row>
             </FormGroup>
-          </Col>
-        </Row>
 
-        <Row between="xs">
-          <Col xs={3}>
             <FormGroup>
-              <Label for="starttime">Event Start Time</Label>
+              <Label for="eoname">Event Organizer Name</Label>
               <Row>
-                <Col sm="12">
+                <Col xs="12">
                   <Input
-                    type="time"
-                    name="startTime"
-                    placeholder="time placeholder"
-                    onChange={handleStartTime}
+                    type="text"
+                    name="eoname"
+                    placeholder=""
+                    onChange={handleChange}
                   />
                 </Col>
               </Row>
             </FormGroup>
-          </Col>
 
-          <Col xs={3}>
             <FormGroup>
-              <Label for="endtime">Event Finish Time</Label>
+              <Label for="pic">Person In Charge (PIC)</Label>
               <Row>
-                <Col sm="12">
+                <Col xs="12">
                   <Input
-                    type="time"
-                    name="endtime"
-                    placeholder="time placeholder"
-                    onChange={handleFinishTime}
+                    type="name"
+                    name="pic"
+                    placeholder=""
+                    onChange={handleChange}
                   />
                 </Col>
               </Row>
             </FormGroup>
-          </Col>
-        </Row>
 
-        <FormGroup>
-          <Label for="eventlocation">Event Location</Label>
-          <Row>
-            <Col sm="6">
-              <Input
-                type="textarea"
-                name="eventlocation"
-                onChange={handleChange}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-{/* 
-        <FormGroup>
-           <Map />
-        </FormGroup> */}
+            <FormGroup>
+              <Label for="picphone">Phone Number</Label>
+              <Row>
+                <Col xs="12">
+                  <Input
+                    type="phoneNumber"
+                    name="picphone"
+                    placeholder=""
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
 
-        <FormGroup>
-          <Label for="eoname">Event Organizer Name</Label>
-          <Row>
-            <Col sm="6">
-              <Input
-                type="text"
-                name="eoname"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="pic">Person In Charge (PIC)</Label>
-          <Row>
-            <Col sm="6">
-              <Input
-                type="name"
-                name="pic"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="picphone">Phone Number</Label>
-          <Row>
-            <Col sm="6">
-              <Input
-                type="phoneNumber"
-                name="picphone"
-                placeholder=""
-                onChange={handleChange}
-              />
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="eooffice">EO Office Address</Label>
-          <Row>
-            <Col sm="6">
-              <Input type="textarea" name="eooffice" onChange={handleChange} />
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <Button style={{ width: "49%" }} onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+            <FormGroup>
+              <Label for="eooffice">EO Office Address</Label>
+              <Row>
+                <Col xs="12">
+                  <Input type="textarea" name="eooffice" onChange={handleChange} />
+                </Col>
+              </Row>
+            </FormGroup>
+            <Button className="bgblooddonor" block="true" onClick={handleSubmit}>
+              Submit
+            </Button>
+            <Link to="/">
+              <Button className="bgblooddonor" block="true">
+                Back To Home
+              </Button>
+            </Link>
+          </Form>
+        </Col>
+      </Row>
     </Container>
+    </div>
   );
 }
+
+export default FormEo;

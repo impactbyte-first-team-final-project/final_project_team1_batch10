@@ -122,6 +122,15 @@
 .pad2em{
   padding: 2em;
 }
+.pad3em{
+  padding: 3em;
+}
+.pad4em{
+  padding: 4em;
+}
+.pad5em{
+  padding: 5em;
+}
 .sectionpad{
   padding-left: 2em;
   padding-right: 2em;
@@ -134,4 +143,7 @@
 .mrgtopbtm1em{
   margin-top: 1em;
   margin-bottom: 1em;
+}
+.mrgbtm2em{
+  margin-bottom: 2em;
 }
