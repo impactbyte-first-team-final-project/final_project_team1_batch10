@@ -39,11 +39,11 @@ class NavHeader extends React.Component {
                 <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret style={{color:"#fff"}}>
-                    User Name
+                      User Name
                     </DropdownToggle>
                     <DropdownMenu right>
                     <DropdownItem onClick={() => {this.props.dispatch({ type: 'LOGOUT' })}} style={{color:"#EB3349"}}>
-                        Log Out
+                      Log Out
                     </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>
