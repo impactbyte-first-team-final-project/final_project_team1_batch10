@@ -7,7 +7,7 @@ class Homepage extends Component {
     return (
       <div>
         <Carousel>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/1.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"90vh",backgroundImage:"url(https://images2.minutemediacdn.com/image/upload/c_crop,h_1686,w_3000,x_0,y_157/f_auto,q_auto,w_1100/v1554703808/shape/mentalfloss/gettyimages-926597358.jpg)",backgroundSize:"cover"}}>
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
