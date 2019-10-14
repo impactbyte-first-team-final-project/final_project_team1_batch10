@@ -35,7 +35,7 @@ export default class EventsCard extends Component {
                         <CardBody>
                             <CardTitle className="testcolor" style={{ fontSize: "25px" }}>Name Events</CardTitle>
                             <CardSubtitle
-                            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+                            style={{ fontFamily: "Courier", fontWeight: "bold" }}
                             >
                             Judul
                             </CardSubtitle>
@@ -58,7 +58,7 @@ export default class EventsCard extends Component {
                         <CardBody>
                             <CardTitle className="testcolor" style={{ fontSize: "25px" }}>Name Events</CardTitle>
                             <CardSubtitle
-                            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+                            style={{ fontFamily: "Courier", fontWeight: "bold" }}
                             >
                             Judul
                             </CardSubtitle>
@@ -81,7 +81,7 @@ export default class EventsCard extends Component {
                         <CardBody>
                             <CardTitle className="testcolor" style={{ fontSize: "25px" }}>Name Events</CardTitle>
                             <CardSubtitle
-                            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+                            style={{ fontFamily: "Courier", fontWeight: "bold" }}
                             >
                             Judul
                             </CardSubtitle>
@@ -104,7 +104,7 @@ export default class EventsCard extends Component {
                         <CardBody>
                             <CardTitle className="testcolor" style={{ fontSize: "25px" }}>Name Events</CardTitle>
                             <CardSubtitle
-                            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+                            style={{ fontFamily: "Courier", fontWeight: "bold" }}
                             >
                             Judul
                             </CardSubtitle>
@@ -205,7 +205,7 @@ export default class EventsCard extends Component {
                         <CardBody>
                             <CardTitle className="testcolor" style={{ fontSize: "25px" }}>Name Events</CardTitle>
                             <CardSubtitle
-                            style={{ fontFamily: "Times New Roman", fontWeight: "bold" }}
+                            style={{ fontFamily: "Courier", fontWeight: "bold" }}
                             >
                             Judul
                             </CardSubtitle>

@@ -10,6 +10,7 @@ export default function SignUp(props) {
     email: "",
     gender: "",
     bloodtype: "",
+    rhfactor: "",
     passuser: "",
     repassword:""
   });
@@ -22,6 +23,7 @@ export default function SignUp(props) {
       value.email === "" ||
       value.gender === "" ||
       value.bloodtype === "" ||
+      value.rhfactor === "" ||
       value.passuser === "" ||
       value.repassword === ""
     ) {
@@ -65,6 +67,13 @@ export default function SignUp(props) {
     setValue({
       ...value,
       bloodtype: event.target.value
+    });
+  }
+
+  function handleRhfactor(event) {
+    setValue({
+      ...value,
+      rhfactor: event.target.value
     });
   }
 
@@ -182,7 +191,46 @@ export default function SignUp(props) {
             </Label>
           </FormGroup>
         </FormGroup>
-
+        <FormGroup tag="fieldset">
+          <br />
+          <Label for="rhfactor">Rh Factor</Label>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="+"
+                value="+"
+                checked={value.rhfactor === "+"}
+                onChange={handleRhfactor}
+              />
+              +
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="-"
+                value="-"
+                checked={value.rhfactor === "-"}
+                onChange={handleRhfactor}
+              />
+              -
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="notSure"
+                value="notSure"
+                checked={value.rhfactor === "notSure"}
+                onChange={handleRhfactor}
+              />
+              Not Sure
+            </Label>
+          </FormGroup>
+        </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
           <Input
