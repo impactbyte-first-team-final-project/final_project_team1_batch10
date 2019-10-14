@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
+import "./assets/css/testhero1.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
 import Homepage from "./components/main";
 import EventsCard from "./components/EventsCard";
+import Testhero1 from "./components/testhero1";
 import NavHeader from "./components/navheader";
 import Footer from "./components/footer";
 import ModalLoading from "./components/loading";
@@ -22,6 +24,7 @@ function App() {
       <ModalLoading />
       <NavHeader />
       <Homepage />
+      <Testhero1 />
       <EventsCard />
       <Footer />
       {/* <Router>
