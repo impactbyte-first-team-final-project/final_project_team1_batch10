@@ -1,21 +1,15 @@
 import React from "react";
 import "./App.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
-<<<<<<< HEAD
-import NavigationBar from "./components/NavigationBar";
-=======
-<<<<<<< HEAD
-import Homepage from "./main";
+import Homepage from "./components/main";
 import NavHeader from "./components/navheader";
+import Footer from "./components/footer";
 import ModalLoading from "./components/loading";
 import ModalSign from "./components/modal_sign";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 // import TabsSign from "../src/components/tabs_sign";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-
-
-
 
 function App() {
   return (
@@ -24,31 +18,11 @@ function App() {
       <ModalLoading />
       <NavHeader />
       <Homepage />
+      <Footer />
       {/* <Router>
         {<Route path="/tabs" exact component={TabsSign} />}
       </Router> */}
-     </Provider>
-=======
->>>>>>> dba91040e83da7c51181ed85b074f2b4251318a9
-import Homepage from "./pages/home";
-import EventPage from "./pages/events";
-import NewsPage from "./pages/news";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-function App() {
-  return (
-    <Provider store={store}>
-      <Router>
-        <NavigationBar />
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/events" component={EventPage} />
-          <Route path="/news" component={NewsPage} />
-        </Switch>
-      </Router>
     </Provider>
->>>>>>> fc9524bd6f49f3031ae6613181d343048fdad5f2
   );
 }
 

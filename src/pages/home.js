@@ -23,10 +23,10 @@ class Homepage extends Component {
         </div>
 =======
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "./assets/img/1.jpg";
-import image2 from "./assets/img/2.jpg";
-import image3 from "./assets/img/3.jpg";
-import { Button,Row, Col } from 'reactstrap';
+import image1 from "../assets/img/1.jpg";
+import image2 from "../assets/img/2.jpg";
+import image3 from "../assets/img/3.jpg";
+import { Button,Row, Col, } from 'reactstrap';
 class Homepage extends Component {
   render() {
     return (
@@ -85,7 +85,7 @@ class Homepage extends Component {
         </Carousel.Item> */}
       </Carousel>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={image1} className="App-logo" alt="logo" />
           <a
             className="App-link"
             href="https://reactjs.org"

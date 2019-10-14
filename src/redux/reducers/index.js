@@ -5,7 +5,7 @@ import signInReducer from './signIn'
 import loadingReducer from './loading'
 
 const initialState = {
-  islogin: true,
+  islogin: false,
   testStatea: 0,
   testStateb: 0,
   contentlist: [],

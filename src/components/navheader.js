@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import {
   Collapse,
   Navbar,
@@ -11,7 +11,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from "reactstrap";
 
 class NavHeader extends React.Component {
   constructor(props) {
@@ -28,58 +29,71 @@ class NavHeader extends React.Component {
     });
   }
   render() {
-    if(this.props.islogin===true)
-    {
-        return (
+    if (this.props.islogin === true) {
+      return (
         <div>
-            <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{color:"#fff"}}>reactstrap</NavbarBrand>
+          <Navbar className="bgblooddonor" color="light" light expand="md">
+            <NavbarBrand href="/" style={{ color: "#fff" }}>
+              reactstrap
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-                <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret style={{color:"#fff"}}>
+                  <DropdownToggle nav caret style={{ color: "#fff" }}>
                     User Name
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                    <DropdownItem onClick={() => {this.props.dispatch({ type: 'LOGOUT' })}} style={{color:"#EB3349"}}>
-                        Log Out
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem
+                      onClick={() => {
+                        this.props.dispatch({ type: "LOGOUT" });
+                      }}
+                      style={{ color: "#EB3349" }}
+                    >
+                      Log Out
                     </DropdownItem>
-                    </DropdownMenu>
+                  </DropdownMenu>
                 </UncontrolledDropdown>
-                </Nav>
+              </Nav>
             </Collapse>
-            </Navbar>
+          </Navbar>
         </div>
-        )
+      );
     } else {
-        return (
+      return (
         <div>
-            <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{color:"#fff"}}>reactstrap</NavbarBrand>
+          <Navbar className="bgblooddonor" color="light" light expand="md">
+            <NavbarBrand href="/" style={{ color: "#fff" }}>
+              reactstrap
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
-                <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink style={{color:"#fff"}} className="PointerKursor" onClick={() => {this.props.dispatch({ type: 'MODAL_LOGIN' })}}>Login</NavLink>
+                  <NavLink
+                    style={{ color: "#fff" }}
+                    className="PointerKursor"
+                    onClick={() => {
+                      this.props.dispatch({ type: "MODAL_LOGIN" });
+                    }}
+                  >
+                    Login
+                  </NavLink>
                 </NavItem>
-                </Nav>
+              </Nav>
             </Collapse>
-            </Navbar>
+          </Navbar>
         </div>
-        )
+      );
     }
   }
 }
 
-
 const mapStateToProps = state => {
-    return {
-      modalLogin: state.signInReducer.modalLogin,
-      islogin: state.reducer.islogin
-    };
+  return {
+    modalLogin: state.signInReducer.modalLogin,
+    islogin: state.reducer.islogin
   };
-  
-  export default connect(
-    mapStateToProps
-  )(NavHeader);
+};
+
+export default connect(mapStateToProps)(NavHeader);
