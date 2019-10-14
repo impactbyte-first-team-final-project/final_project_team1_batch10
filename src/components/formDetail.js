@@ -12,7 +12,7 @@ import {
   Container
 } from "reactstrap";
 
-export default function FormDetail(props) {
+function FormDetail(props) {
     
   return (
     <Container style={{ marginTop: "3%", marginLeft: "30%" }}>
@@ -151,3 +151,5 @@ export default function FormDetail(props) {
     </Container>
   );
 }
+
+export default FormDetail;
