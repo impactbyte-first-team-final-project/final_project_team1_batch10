@@ -30,8 +30,9 @@ class ModalSign extends React.Component {
       <div>
         <Modal
           isOpen={this.props.modalLogin}
+          size="lg"
         >
-          <ModalHeader toggle={() => {this.props.dispatch({ type: 'MODAL_LOGIN' })}}></ModalHeader>
+          <ModalHeader className="bgblooddonor colorwhite" toggle={() => {this.props.dispatch({ type: 'MODAL_LOGIN' })}}> Login / Register</ModalHeader>
           <ModalBody>
             <TabsSign />
           </ModalBody>

@@ -149,3 +149,7 @@
 .mrgbtm2em{
   margin-bottom: 2em;
 }
+.fixedtop{
+  display: fixed;
+  top:0px;
+}

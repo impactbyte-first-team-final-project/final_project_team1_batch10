@@ -254,7 +254,7 @@ export default function SignUp(props) {
           />
         </FormGroup>
       </FormGroup>
-      <Button className="btn-block" onClick={handleSubmit}>
+      <Button className="btn-block bgblooddonor" onClick={handleSubmit}>
         Submit
       </Button>
     </Form>
