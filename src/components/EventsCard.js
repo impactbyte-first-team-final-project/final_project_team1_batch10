@@ -119,7 +119,7 @@ class EventsCard extends Component {
         </Container>
         <Card>
           <CardHeader className="testcolor">
-            <h1>Upcomming Events</h1>
+            <h1>Upcoming Events</h1>
           </CardHeader>
         </Card>
         <Container fluid="true">
