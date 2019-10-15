@@ -1,7 +1,10 @@
+import { combineReducers } from 'redux'
 import axios from "axios";
 
+import signInReducer from './signIn'
+import loadingReducer from './loading'
+
 const initialState = {
-  modalLogin: false,
   islogin: false,
   testStatea: 0,
   testStateb: 0,
@@ -20,10 +23,8 @@ export const refreshPaging = () => dispatch => {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case "MODAL_LOGIN":
-      return { ...state, modalLogin: !state.modalLogin };
     case "LOGIN":
-      return { ...state, testredux: "you have been loged in" };
+      return { ...state, islogin: true };
     case "LOGOUT":
       return { ...state, islogin: false };
     case "FETCH_DATA":
@@ -32,4 +33,8 @@ const reducer = (state = initialState, action = {}) => {
       return state;
   }
 };
-export default reducer;
+export default combineReducers({
+  reducer,
+  signInReducer,
+  loadingReducer
+});

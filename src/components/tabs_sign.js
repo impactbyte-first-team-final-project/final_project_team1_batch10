@@ -39,24 +39,24 @@ export default class TabsSign extends React.Component {
     return (
       <div>
         <Nav tabs>
-          <NavItem>
+          <NavItem style={{width:"50%"}}>
             <NavLink
               className={classnames({ active: this.state.activeTab === "1" })}
               onClick={() => {
                 this.toggle("1");
               }}
             >
-              Sign In
+              <span className="testcolor">Sign In</span>
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem style={{width:"50%"}}>
             <NavLink
               className={classnames({ active: this.state.activeTab === "2" })}
               onClick={() => {
                 this.toggle("2");
               }}
             >
-              Sign Up
+              <span className="testcolor">Sign Up</span>
             </NavLink>
           </NavItem>
         </Nav>
