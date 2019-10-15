@@ -48,7 +48,11 @@ class Homepage extends Component {
               </Row>
             </Container>
           </Carousel.Item>
+<<<<<<< HEAD
           <Carousel.Item style={{height:"100vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/3.jpg)",backgroundSize:"cover"}}>
+=======
+          <Carousel.Item style={{height:"90vh",backgroundImage:"url(https://www.yourlocalexaminer.com.au/wp-content/uploads/2016/10/CAN-Blood-donation.jpg)",backgroundSize:"100%", backgroundColor:"#00b3e6", backgroundPosition:"center", backgroundRepeat:"no-repeat"}}>
+>>>>>>> f061f45d03e989fb276b9a62ec2ecdb19b645c7f
             <Container className="fullheightwidht" style={{display:"flex",alignItems:"center"}}>
               <Row className="fullwidht">
                 <Col xs="5">

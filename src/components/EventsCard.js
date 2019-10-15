@@ -45,7 +45,7 @@ class EventsCard extends Component {
         <Card>
           <CardHeader className="testcolor">
             <Row className="fullwidht">
-              <Col xs="10"><h1>Upcomming Events</h1></Col>
+              <Col xs="10"><h1>Upcoming Events</h1></Col>
               <Col xs="2" className="PointerKursor itemaligncenter justcontentright" onClick={() => this.props.history.push({pathname: '/eventlist'})}><span>See More ...</span></Col>
             </Row>
           </CardHeader>
