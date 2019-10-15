@@ -20,7 +20,7 @@ class Homepage extends Component {
     return (
       <div>
         <Carousel>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(https://images2.minutemediacdn.com/image/upload/c_crop,h_1686,w_3000,x_0,y_157/f_auto,q_auto,w_1100/v1554703808/shape/mentalfloss/gettyimages-926597358.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"100vh",backgroundImage:"url(https://images2.minutemediacdn.com/image/upload/c_crop,h_1686,w_3000,x_0,y_157/f_auto,q_auto,w_1100/v1554703808/shape/mentalfloss/gettyimages-926597358.jpg)",backgroundSize:"cover"}}>
             <Container className="fullheightwidht" style={{display:"flex",alignItems:"center"}}>
               <Row className="fullwidht">
                 <Col xs="5">
@@ -34,7 +34,7 @@ class Homepage extends Component {
               </Row>
             </Container>
           </Carousel.Item>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/2.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"100vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/2.jpg)",backgroundSize:"cover"}}>
             <Container className="fullheightwidht" style={{display:"flex",alignItems:"center"}}>
               <Row className="fullwidht">
                 <Col xs="5">
@@ -48,7 +48,7 @@ class Homepage extends Component {
               </Row>
             </Container>
           </Carousel.Item>
-          <Carousel.Item style={{height:"90vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/3.jpg)",backgroundSize:"cover"}}>
+          <Carousel.Item style={{height:"100vh",backgroundImage:"url(http://transdeal.co.id/multer-image-upload/3.jpg)",backgroundSize:"cover"}}>
             <Container className="fullheightwidht" style={{display:"flex",alignItems:"center"}}>
               <Row className="fullwidht">
                 <Col xs="5">

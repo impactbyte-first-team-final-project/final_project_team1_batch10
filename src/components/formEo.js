@@ -26,6 +26,7 @@ function FormEo(props) {
     eoname: "",
     pic: "",
     picphone: "",
+    picemail: "",
     eooffice: ""
   });
   console.log(value);
@@ -43,6 +44,7 @@ function FormEo(props) {
       value.eoname === "" ||
       value.pic === "" ||
       value.picphone === "" ||
+      value.picemail === "" ||
       value.eooffice === ""
     ) {
       alert("Please complete fill the form");
@@ -54,7 +56,7 @@ function FormEo(props) {
           }
         })
         .then(result => {
-          alert(`Permintaan event anda berhasil, harap menunggu konfirmasi`);
+          alert(`Permintaan event anda berhasil, harap menunggu konfirmasi persetujuan event di email anda`);
         })
         .catch(error => {
           console.log(error);
@@ -124,6 +126,7 @@ function FormEo(props) {
                     placeholder="e.g Hammersonic Music festival"
                     onChange={handleChange}
                     block
+                    required
                   />
                 </Col>
               </Row>
@@ -239,12 +242,26 @@ function FormEo(props) {
             </FormGroup>
 
             <FormGroup>
-              <Label for="picphone">Phone Number</Label>
+              <Label for="picphone">PIC Phone Number</Label>
               <Row>
                 <Col xs="12">
                   <Input
                     type="phoneNumber"
                     name="picphone"
+                    placeholder=""
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+            </FormGroup>
+
+            <FormGroup>
+              <Label for="picphone">PIC Email</Label>
+              <Row>
+                <Col xs="12">
+                  <Input
+                    type="email"
+                    name="picemail"
                     placeholder=""
                     onChange={handleChange}
                   />

@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./assets/css/testhero1.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
+import Eventlist from "./components/eventlist";
+import DetailEvents from "./components/detailEvents";
 import Mainpage from "./components/mainpage";
 import FormEo from "./components/formEo";
 import NavHeader from "./components/navheader";
+// import Stickynavbar from "./components/stickynavbar";
 import Footer from "./components/footer";
 import ModalLoading from "./components/loading";
 import ModalSign from "./components/modal_sign";
@@ -15,8 +20,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-// import TabsSign from "../src/components/tabs_sign";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -24,10 +27,17 @@ function App() {
       <ModalSign />
       <ModalLoading />
       <NavHeader />
+      {/* <Stickynavbar /> */}
       <Router>
           <Switch>
             <Route exact path="/">
               <Mainpage />
+            </Route>
+            <Route path="/eventlist">
+              <Eventlist />
+            </Route>
+            <Route path="/eventdetail">
+              <DetailEvents />
             </Route>
             <Route path="/createevent">
               <FormEo />
