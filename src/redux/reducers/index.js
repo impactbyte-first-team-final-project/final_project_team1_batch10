@@ -3,9 +3,10 @@ import axios from "axios";
 
 import signInReducer from './signIn'
 import loadingReducer from './loading'
+import detailevent from './detailevents'
 
 const initialState = {
-  islogin: false,
+  islogin: true,
   testStatea: 0,
   testStateb: 0,
   contentlist: [],
@@ -36,5 +37,6 @@ const reducer = (state = initialState, action = {}) => {
 export default combineReducers({
   reducer,
   signInReducer,
-  loadingReducer
+  loadingReducer,
+  detailevent
 });

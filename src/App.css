@@ -153,3 +153,29 @@
   display: fixed;
   top:0px;
 }
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  color: #000;
+  background-color: #000;
+}
+.slickArrowLeft{
+  position: absolute;
+  top: 50%;
+  left: 1%;
+}
+.slickArrowRight{
+  position: absolute;
+  top: 50%;
+  right: 1%;
+}
+.bgtransparent{
+  background-color: rgba(0,0,0,0.0);
+}
+.stickynavbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

@@ -5,20 +5,14 @@ import {
   Nav,
   NavItem,
   NavLink,
-//   Card,
-//   Button,
-//   CardTitle,
-//   CardText,
   Row,
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import SignIn from "./testsignin";
-import SignUp from "./signup";
+import Article from "./article";
+import EventList from "./eventlist";
 
-
-
-export default class TabsSign extends React.Component {
+export default class TabsAdmin extends React.Component {
   constructor(props) {
     super(props);
 
@@ -39,24 +33,24 @@ export default class TabsSign extends React.Component {
     return (
       <div>
         <Nav tabs>
-          <NavItem style={{width:"50%"}}>
+          <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === "1" })}
               onClick={() => {
                 this.toggle("1");
               }}
             >
-              <span className="testcolor">Sign In</span>
+              Submitted Event List
             </NavLink>
           </NavItem>
-          <NavItem style={{width:"50%"}}>
+          <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === "2" })}
               onClick={() => {
                 this.toggle("2");
               }}
             >
-              <span className="testcolor">Sign Up</span>
+              Submit Event Article
             </NavLink>
           </NavItem>
         </Nav>
@@ -64,16 +58,16 @@ export default class TabsSign extends React.Component {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                  <br />
-                <SignIn />
+                <br />
+                <EventList />
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
               <Col sm="12">
-                  <br />
-                <SignUp toggle={this.toggle}/>
+                <br />
+                <Article />
               </Col>
             </Row>
           </TabPane>
