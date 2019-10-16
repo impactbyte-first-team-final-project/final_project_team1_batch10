@@ -74,10 +74,7 @@ export default class detailEvents extends Component {
                 </i>
               </Col>
             </Row>
-            <Row>
-              <Col></Col>
-              <Col></Col>
-            </Row>
+
             <Row>
               <Col xs="8"></Col>
             </Row>
