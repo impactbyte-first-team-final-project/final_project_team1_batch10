@@ -30,6 +30,8 @@ class NavHeader extends React.Component {
   }
   render() {
     if (this.props.islogin === true) {
+      console.log(this.props.userinfo);
+      
       return (
         <div>
           <Navbar className="bgblooddonor" color="light" light expand="md">
@@ -41,12 +43,13 @@ class NavHeader extends React.Component {
               <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret style={{ color: "#fff" }}>
-                    User Name
+                    {this.props.userinfo.nama_user}
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem
                       onClick={() => {
                         this.props.dispatch({ type: "LOGOUT" });
+                        sessionStorage.removeItem("logininfo");
                       }}
                       style={{ color: "#EB3349" }}
                     >
@@ -92,7 +95,8 @@ class NavHeader extends React.Component {
 const mapStateToProps = state => {
   return {
     modalLogin: state.signInReducer.modalLogin,
-    islogin: state.reducer.islogin
+    islogin: state.reducer.islogin,
+    userinfo: state.reducer.userinfo
   };
 };
 

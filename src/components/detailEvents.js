@@ -26,11 +26,10 @@ class DetailEvents extends Component {
       }
     };
   render() {
-    console.log(this.props.location);
     
     return (
       <div>
-        <Container fluid="true" style={{padding:"3em"}}>
+        <Container fluid style={{padding:"3em"}}>
           <Row>
             <Col xs="8">
               <img src={img1} alt="" style={{ width: "100%" }} />
@@ -42,14 +41,14 @@ class DetailEvents extends Component {
               <Row>
                 <Col xs="12">
                   <h5>Diselenggarakan oleh</h5>
-                  <i class="fa fa-users" aria-hidden="true"> Danone Group</i>
+                  <i className="fa fa-users" aria-hidden="true"> Danone Group</i>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
                   <h5>Tanggal dan waktu</h5>
-                  <i class="fa fa-calendar" aria-hidden="true"> 29 Okt 2019 - 29 Okt 2019</i><br />
-                  <i class="fa fa-clock-o" aria-hidden="true"> 08:00 - 17:00 WIB</i>
+                  <i className="fa fa-calendar" aria-hidden="true"> 29 Okt 2019 - 29 Okt 2019</i><br />
+                  <i className="fa fa-clock-o" aria-hidden="true"> 08:00 - 17:00 WIB</i>
                 </Col>
               </Row>
               <Row>

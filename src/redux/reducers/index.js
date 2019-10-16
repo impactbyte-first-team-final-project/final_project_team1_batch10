@@ -6,10 +6,11 @@ import loadingReducer from './loading'
 import detailevent from './detailevents'
 
 const initialState = {
-  islogin: true,
+  islogin: '',
   testStatea: 0,
   testStateb: 0,
   contentlist: [],
+  userinfo: [],
   testredux:"Hello From Redux"
 };
 export const refreshPaging = () => dispatch => {
@@ -30,6 +31,8 @@ const reducer = (state = initialState, action = {}) => {
       return { ...state, islogin: false };
     case "FETCH_DATA":
       return { ...state, contentlist: action.payload };
+      case "USER_INFO":
+        return { ...state, userinfo: action.payload };
     default:
       return state;
   }

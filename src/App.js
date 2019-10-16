@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./assets/css/testhero1.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
+import Ceklogin from "./components/ceklogin";
 import Eventlist from "./components/eventlist";
 import DetailEvents from "./components/detailEvents";
 import Mainpage from "./components/mainpage";
@@ -24,6 +25,7 @@ import {
 function App() {
   return (
     <Provider store={store}>
+      <Ceklogin />
       <ModalSign />
       <ModalLoading />
       <NavHeader />

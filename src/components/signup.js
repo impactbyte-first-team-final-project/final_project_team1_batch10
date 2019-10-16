@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import axios from "axios"; 
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 
-export default function SignUp(props) {
+function SignUp(props) {
     
   const [value, setValue] = useState({
     namauser: "",
-    email: "",
+    emailuser: "",
     gender: "",
     bloodtype: "",
     rhfactor: "",
@@ -17,10 +18,10 @@ export default function SignUp(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-  
+    props.dispatch({ type: "LOADINGTOGGLE" });
     if (
       value.namauser === "" ||
-      value.email === "" ||
+      value.emailuser === "" ||
       value.gender === "" ||
       value.bloodtype === "" ||
       value.rhfactor === "" ||
@@ -28,23 +29,35 @@ export default function SignUp(props) {
       value.repassword === ""
     ) {
       alert("Please complete fill the form");
+      props.dispatch({ type: "LOADINGTOGGLE" });
     } else if (value.passuser !== value.repassword) {
       alert("Password didn/t match, please Re-type your password!");
+      props.dispatch({ type: "LOADINGTOGGLE" });
     } else {
+      const sendSignup = {
+        namauser: value.namauser,
+        emailuser: value.emailuser,
+        gender: value.gender,
+        bloodtype: value.bloodtype,
+        rhfactor: value.rhfactor,
+        passuser: value.passuser
+      };
       axios
-      .post(`https://my-mysql-api.herokuapp.com/user`, value, {
+      .post(`https://my-mysql-api.herokuapp.com/user`, sendSignup, {
         headers: {
           "Access-Control-Allow-Origin": '*'
         }
       })
       .then(result => {
         alert(`Akun anda berhasil terdaftar, silahkan lakukan sign in!`)
-          props.toggle("1");
+        props.toggle("1");
+        props.dispatch({ type: "LOADINGTOGGLE" });
      
 
       })
       .catch(error => {
         console.log(error);
+        props.dispatch({ type: "LOADINGTOGGLE" });
       });
     }
   }
@@ -88,17 +101,19 @@ export default function SignUp(props) {
           placeholder="e.g Nikita Khrushchev"
           onChange={handleChange}
           defaultValue = {setValue.namauser}
+          required
         />
       </FormGroup>
       <FormGroup>
         <Label for="email">Email</Label>
         <Input
           type="email"
-          name="email"
-          id="email"
+          name="emailuser"
+          id="emailuser"
           placeholder="e.g nikita.krushchev@xxxxx.com"
           onChange={handleChange}
-          defaultValue = {setValue.email}
+          defaultValue = {setValue.emailuser}
+          required
         />
       </FormGroup>
       <FormGroup tag="fieldset">
@@ -240,6 +255,7 @@ export default function SignUp(props) {
             placeholder=""
             onChange={handleChange}
             defaultValue = {setValue.passuser}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -251,12 +267,14 @@ export default function SignUp(props) {
             placeholder=""
             onChange={handleChange}
             defaultValue = {setValue.repassword}
+            required
           />
         </FormGroup>
       </FormGroup>
-      <Button className="btn-block bgblooddonor" onClick={handleSubmit}>
+      <Button className="btn-block bgblooddonor" type="submit">
         Submit
       </Button>
     </Form>
   );
 }
+export default connect()(SignUp);
