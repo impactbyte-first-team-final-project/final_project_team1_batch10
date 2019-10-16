@@ -27,7 +27,6 @@ class ModalLoading extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     ModalLoading: state.loadingReducer.ModalLoading
   };

@@ -1,55 +1,106 @@
 import React, { Component } from "react";
-import { withRouter} from 'react-router-dom';
-import {
-  Container,
-  Row,
-  Col,
-  Button
-} from "reactstrap";
+import { withRouter } from "react-router-dom";
+import { Container, Row, Col, Button } from "reactstrap";
 import img1 from "../assets/img/testimag.jpg";
 import { connect } from "react-redux";
+import axios from "axios";
 
 class DetailEvents extends Component {
-  constructor(props) {
-      super(props);
+  state = {
+    data: {
+      idevents: "",
+      namaevents: "",
+      startdateevents: "",
+      enddateevents: "",
+      starttimeevents: "",
+      endtimeevents: "",
+      eventlocation: "",
+      eoname: "",
+      pic: "",
+      picphone: "",
+      picemail: "",
+      eooffice: "",
+      approvalstatusevents: "",
+      id_user: "",
+      event_address: "",
+      bootorroomname: "",
+      boothorroomlarge: "",
+      city: "",
+      province: "",
+      floorplan: "",
+      rundown: "",
+      eventlogo: "",
+      eventgift: "",
+      eventDetail: {}
     }
-    backtohome = ()=>{
-      this.props.history.push({
-          pathname: '/'
-        })
+  };
+  componentDidMount = () => {
+    //console.log(this.props, "props");
+    const id = { idevent: this.props.match.params.id };
+
+    console.log(id);
+
+    axios
+      .post(`https://my-mysql-api.herokuapp.com/events/id`, id)
+      .then(response => {
+        console.log(response, "fffff");
+
+        this.setState({
+          namaevents: response.data.result[0].namaevents,
+          startdateevents: response.data[0].startdateevents
+        });
+      })
+      .catch(error => {});
+  };
+
+  backtohome = () => {
+    this.props.history.push({
+      pathname: "/"
+    });
+  };
+  participate = () => {
+    if (this.props.islogin === true) {
+      alert("Anda mengikuti event ini");
+    } else {
+      this.props.dispatch({ type: "MODAL_LOGIN" });
     }
-    participate = () => {
-      if(this.props.islogin ===true){
-          alert("Anda mengikuti event ini")
-      } else {
-          this.props.dispatch({ type: 'MODAL_LOGIN' })
-      }
-    };
+  };
   render() {
-    console.log(this.props.location);
-    
     return (
       <div>
-        <Container fluid="true" style={{padding:"3em"}}>
+        <Container fluid style={{ padding: "3em" }}>
           <Row>
             <Col xs="8">
               <img src={img1} alt="" style={{ width: "100%" }} />
             </Col>
             <Col xs="4">
               <Row>
-                <Col xs="12"><h1 style={{ fontSize: "3em",color: "red"}}>NAMA EVENT</h1></Col>
+                <Col xs="12">
+                  <h1 style={{ fontSize: "3em", color: "red" }}>
+                    {this.state.namaevents}
+                  </h1>
+                </Col>
               </Row>
               <Row>
                 <Col xs="12">
                   <h5>Diselenggarakan oleh</h5>
-                  <i class="fa fa-users" aria-hidden="true"> Danone Group</i>
+                  <i className="fa fa-users" aria-hidden="true">
+                    Danone Group
+                  </i>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
                   <h5>Tanggal dan waktu</h5>
-                  <i class="fa fa-calendar" aria-hidden="true"> 29 Okt 2019 - 29 Okt 2019</i><br />
-                  <i class="fa fa-clock-o" aria-hidden="true"> 08:00 - 17:00 WIB</i>
+                  <i className="fa fa-calendar" aria-hidden="true">
+                    {" "}
+                    {this.state.startdateevents} - 29 Okt 2019
+                  </i>
+                  <br />
+                  <i className="fa fa-clock-o" aria-hidden="true">
+                    {" "}
+                    08:00 - 17:00 WIB
+                  </i>
                 </Col>
               </Row>
               <Row>
@@ -58,12 +109,8 @@ class DetailEvents extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs="6">
-                  kota:
-                </Col>
-                <Col xs="6">
-                  provinsi:
-                </Col>
+                <Col xs="6">kota:</Col>
+                <Col xs="6">provinsi:</Col>
               </Row>
               <Row>
                 <Col xs="12">
@@ -86,35 +133,35 @@ class DetailEvents extends Component {
               {/* <h1 style={{ fontSize: "100px" }}>{this.props.location.state.idevent}</h1> */}
             </Col>
           </Row>
-          <Row style={{marginTop:"2em"}}>
+          <Row style={{ marginTop: "2em" }}>
             <Col xs="8">
               <Row>
                 <Col xs="12">
                   <h5>Description</h5>
                   <p>
-                    It is the grandiose vision of the Dream World Wide program to
-                    allow learning of the original Arabic language of the Quran
-                    easy to learn and accessible regardless of a person's language
-                    of origin. We want to empower as many students and teachers
-                    around the world as possible with our unprecedented Qur'anic
-                    language curriculum and hope to create a worldwide network of
-                    students that learn from each other and their instructions and
-                    remain connected indefinitely. Join us today to begin your
-                    journey!
+                    It is the grandiose vision of the Dream World Wide program
+                    to allow learning of the original Arabic language of the
+                    Quran easy to learn and accessible regardless of a person's
+                    language of origin. We want to empower as many students and
+                    teachers around the world as possible with our unprecedented
+                    Qur'anic language curriculum and hope to create a worldwide
+                    network of students that learn from each other and their
+                    instructions and remain connected indefinitely. Join us
+                    today to begin your journey!
                   </p>
                 </Col>
                 <Col xs="12">
                   <h5>Rundown event</h5>
                   <p>
-                    It is the grandiose vision of the Dream World Wide program to
-                    allow learning of the original Arabic language of the Quran
-                    easy to learn and accessible regardless of a person's language
-                    of origin. We want to empower as many students and teachers
-                    around the world as possible with our unprecedented Qur'anic
-                    language curriculum and hope to create a worldwide network of
-                    students that learn from each other and their instructions and
-                    remain connected indefinitely. Join us today to begin your
-                    journey!
+                    It is the grandiose vision of the Dream World Wide program
+                    to allow learning of the original Arabic language of the
+                    Quran easy to learn and accessible regardless of a person's
+                    language of origin. We want to empower as many students and
+                    teachers around the world as possible with our unprecedented
+                    Qur'anic language curriculum and hope to create a worldwide
+                    network of students that learn from each other and their
+                    instructions and remain connected indefinitely. Join us
+                    today to begin your journey!
                   </p>
                 </Col>
               </Row>
@@ -123,21 +170,19 @@ class DetailEvents extends Component {
               <h5>Denah</h5>
               <p>
                 It is the grandiose vision of the Dream World Wide program to
-                allow learning of the original Arabic language of the Quran
-                easy to learn and accessible regardless of a person's language
-                of origin. We want to empower as many students and teachers
-                around the world as possible with our unprecedented Qur'anic
-                language curriculum and hope to create a worldwide network of
-                students that learn from each other and their instructions and
-                remain connected indefinitely. Join us today to begin your
-                journey!
+                allow learning of the original Arabic language of the Quran easy
+                to learn and accessible regardless of a person's language of
+                origin. We want to empower as many students and teachers around
+                the world as possible with our unprecedented Qur'anic language
+                curriculum and hope to create a worldwide network of students
+                that learn from each other and their instructions and remain
+                connected indefinitely. Join us today to begin your journey!
               </p>
             </Col>
           </Row>
           <Row>
             <Col xs="12">
-
-            <Row>
+              <Row>
                 <Col xs="6">
                   <Button
                     className="bgblooddonor"

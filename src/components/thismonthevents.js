@@ -55,15 +55,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 123 }
                         })}>Lihat detail event</Button>
@@ -84,15 +84,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 456 }
                         })}>Lihat detail event</Button>
@@ -113,15 +113,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 789 }
                         })}>Lihat detail event</Button>
@@ -142,15 +142,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 111 }
                         })}>Lihat detail event</Button>
@@ -171,15 +171,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 222 }
                         })}>Lihat detail event</Button>
@@ -200,15 +200,15 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i class="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content content.
                     </CardText>
-                    <Button block="true" className="bgblooddonor" onClick={() => this.props.history.push({
+                    <Button block className="bgblooddonor" onClick={() => this.props.history.push({
                         pathname: '/eventdetail',
                         state: { idevent: 333 }
                         })}>Lihat detail event</Button>

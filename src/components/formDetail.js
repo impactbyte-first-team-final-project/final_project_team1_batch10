@@ -93,17 +93,6 @@ function FormDetail(props) {
           </Col>
         </Row>
 
-        <FormGroup>
-          <Label for="large">
-            Booth or room dimension (Wide x Long in meters){" "}
-          </Label>
-          <Row>
-            <Col xs="8">
-              <Input type="text" name="large" placeholder="e.g 5 x 5 m  " />
-            </Col>
-          </Row>
-        </FormGroup>
-
         <FormGroup row>
           <Label for="floorplan" xs={2}>
             Floor Plan (Optional)

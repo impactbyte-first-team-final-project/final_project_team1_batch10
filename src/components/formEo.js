@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { withRouter} from 'react-router-dom';
 import {
   Button,
   Form,
@@ -33,6 +35,7 @@ function FormEo(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    props.dispatch({ type: "LOADINGTOGGLE" });
 
     if (
       value.namaevents === "" ||
@@ -48,6 +51,7 @@ function FormEo(props) {
       value.eooffice === ""
     ) {
       alert("Please complete fill the form");
+      props.dispatch({ type: "LOADINGTOGGLE" });
     } else {
       axios
         .post(`https://my-mysql-api.herokuapp.com/events`, value, {
@@ -56,10 +60,26 @@ function FormEo(props) {
           }
         })
         .then(result => {
-          alert(`Permintaan event anda berhasil, harap menunggu konfirmasi persetujuan event di email anda`);
+          alert(`Permintaan event anda berhasil dikirim, harap menunggu konfirmasi persetujuan event di email anda`);
+          setValue({
+            namaevents: "",
+            startdate: "",
+            enddate: "",
+            starttime: "",
+            endtime: "",
+            eventlocation: "",
+            eoname: "",
+            pic: "",
+            picphone: "",
+            picemail: "",
+            eooffice: ""
+          });
+          props.dispatch({ type: "LOADINGTOGGLE" });
+          props.history.push({pathname: '/'});
         })
         .catch(error => {
           console.log(error);
+          props.dispatch({ type: "LOADINGTOGGLE" });
         });
     }
   }
@@ -98,10 +118,11 @@ function FormEo(props) {
       endtime: event.target.value
     });
   }
-
+  console.log(props);
+  
   return (
     <div>
-    <Container fluid="true" className="pad4em centercontent">
+    <Container fluid className="pad4em centercontent">
       <Row className="fullwidht">
         <Col className="mrgbtm2em" xs="12">
           <Card>
@@ -143,6 +164,7 @@ function FormEo(props) {
                         name="startdate"
                         placeholder="date placeholder"
                         onChange={handleDateStart}
+                        required
                       />
                     </Col>
                   </Row>
@@ -159,6 +181,7 @@ function FormEo(props) {
                         name="enddate"
                         placeholder="date placeholder"
                         onChange={handleDateFinish}
+                        required
                       />
                     </Col>
                   </Row>
@@ -177,6 +200,7 @@ function FormEo(props) {
                         name="startTime"
                         placeholder="time placeholder"
                         onChange={handleStartTime}
+                        required
                       />
                     </Col>
                   </Row>
@@ -193,6 +217,7 @@ function FormEo(props) {
                         name="endtime"
                         placeholder="time placeholder"
                         onChange={handleFinishTime}
+                        required
                       />
                     </Col>
                   </Row>
@@ -208,6 +233,7 @@ function FormEo(props) {
                     type="textarea"
                     name="eventlocation"
                     onChange={handleChange}
+                    required
                   />
                 </Col>
               </Row>
@@ -222,6 +248,7 @@ function FormEo(props) {
                     name="eoname"
                     placeholder=""
                     onChange={handleChange}
+                    required
                   />
                 </Col>
               </Row>
@@ -236,6 +263,7 @@ function FormEo(props) {
                     name="pic"
                     placeholder=""
                     onChange={handleChange}
+                    required
                   />
                 </Col>
               </Row>
@@ -250,6 +278,7 @@ function FormEo(props) {
                     name="picphone"
                     placeholder=""
                     onChange={handleChange}
+                    required
                   />
                 </Col>
               </Row>
@@ -264,6 +293,7 @@ function FormEo(props) {
                     name="picemail"
                     placeholder=""
                     onChange={handleChange}
+                    required
                   />
                 </Col>
               </Row>
@@ -273,15 +303,15 @@ function FormEo(props) {
               <Label for="eooffice">EO Office Address</Label>
               <Row>
                 <Col xs="12">
-                  <Input type="textarea" name="eooffice" onChange={handleChange} />
+                  <Input type="textarea" name="eooffice" onChange={handleChange} required/>
                 </Col>
               </Row>
             </FormGroup>
-            <Button className="bgblooddonor" block="true" onClick={handleSubmit}>
+            <Button className="bgblooddonor" block type="submit">
               Submit
             </Button>
             <Link to="/">
-              <Button className="bgblooddonor" block="true">
+              <Button className="bgblooddonor" block>
                 Back To Home
               </Button>
             </Link>
@@ -292,5 +322,4 @@ function FormEo(props) {
     </div>
   );
 }
-
-export default FormEo;
+export default connect()(withRouter(FormEo));
