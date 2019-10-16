@@ -21,7 +21,8 @@ class Eventlist extends Component {
   state = {
     currentPage: 1,
     postsPerPage: 3,
-    tentangevents: []
+    tentangevents: [],
+    input: ""
   };
   componentDidMount = () => {
     axios
@@ -32,6 +33,11 @@ class Eventlist extends Component {
         });
       })
       .catch(error => {});
+  };
+  handleInput = event => {
+    this.setState({
+      input: event.target.value
+    });
   };
   render() {
     // Get current posts
@@ -97,6 +103,19 @@ class Eventlist extends Component {
     return (
       <div>
         <Container fluid style={{ padding: "1em" }}>
+          <div className="search-bar">
+            <form>
+              <input
+                type="text"
+                placeholder="Search for Podcast"
+                value={this.state.input}
+                onChange={this.handleInput}
+              />
+              <button onClick={this.handleButton} type="button">
+                Search
+              </button>
+            </form>
+          </div>
           <Row>
             <Col xs="4">
               <Card>

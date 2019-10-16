@@ -7,14 +7,16 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
     pageNumbers.push(i);
   }
 
-  console.log(pageNumbers);
+  console.log(currentPage);
 
   return (
     <nav>
       <ul className="pagination">
         <li>
           <a
-            onClick={() => paginate(currentPage - 1)}
+            onClick={() =>
+              currentPage === 1 ? null : paginate(currentPage - 1)
+            }
             href="#/"
             className="page-link"
           >
@@ -31,7 +33,11 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
         ))}
         <li>
           <a
-            onClick={() => paginate(currentPage + 1)}
+            onClick={() =>
+              currentPage === pageNumbers.length
+                ? null
+                : paginate(currentPage + 1)
+            }
             href="#/"
             className="page-link"
           >
