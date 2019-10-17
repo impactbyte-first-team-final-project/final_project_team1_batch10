@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Card, CardBody, CardHeader } from "reactstrap";
 import { connect } from 'react-redux';
 
 function SignInAdmin(props) {
@@ -40,6 +40,11 @@ function SignInAdmin(props) {
     });
   }
   return (
+    <Card style={{marginLeft:"20em", marginRight:"20em", top:"5em"}}>
+      <CardHeader>
+        <h4 style={{textAlign:"center", fontWeight:"bold"}}>ADMIN LOG IN</h4>
+      </CardHeader>
+      <CardBody>
     <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="prm_admin">Name / Email</Label>
@@ -61,10 +66,12 @@ function SignInAdmin(props) {
 
         />
       </FormGroup>
-      <Button className="btn-block" onClick={handleSubmit}>
+      <Button style={{marginLeft:"32em"}} onClick={handleSubmit}>
         Submit
       </Button>
     </Form>
+    </CardBody>    
+    </Card>
   );
 }
 export default SignInAdmin;
