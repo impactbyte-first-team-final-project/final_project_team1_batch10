@@ -36,7 +36,7 @@ function SignInAdmin(props) {
           props.dispatch({ type: 'LOADINGTOGGLE' });
           alert(result.data.message);
         } else {
-          console.log("masukadmin");
+          // console.log("masukadmin");
           
           alert(result.data.message);
           props.dispatch({ type: 'LOADINGTOGGLE' });

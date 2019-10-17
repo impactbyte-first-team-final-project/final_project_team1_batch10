@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import { withRouter} from 'react-router-dom';
 import {
-  Container,
   Card,
-  CardImg,
-  CardText,
   CardBody,
   CardHeader,
-  CardTitle,
-  CardSubtitle,
-  Button,
   Row,
   Col
 } from "reactstrap";
-import image1 from "../assets/img/1.jpg";
 import { connect } from "react-redux";
 import Upcomingevent from "./upcomingevent";
 import Thismonthevent from "./thismonthevents";

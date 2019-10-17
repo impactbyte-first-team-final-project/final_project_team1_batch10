@@ -30,7 +30,7 @@ class NavHeader extends React.Component {
   }
   render() {
     if (this.props.islogin === true) {
-      console.log(this.props.userinfo);
+      // console.log(this.props.userinfo);
       
       return (
         <div>

@@ -31,7 +31,7 @@ function FormEo(props) {
     picemail: "",
     eooffice: ""
   });
-  console.log(value);
+  // console.log(value);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -118,7 +118,7 @@ function FormEo(props) {
       endtime: event.target.value
     });
   }
-  console.log(props);
+  // console.log(props);
   
   return (
     <div>

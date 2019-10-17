@@ -5,13 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import {
   Container,
   Card,
-  CardImg,
-  CardText,
   CardBody,
-  CardHeader,
-  CardTitle,
-  CardSubtitle,
-  Button,
   Row,
   Col
 } from "reactstrap";
