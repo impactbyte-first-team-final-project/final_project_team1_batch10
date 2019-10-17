@@ -40,6 +40,10 @@ class Eventlist extends Component {
     });
   };
   render() {
+    //search
+    let filtered=this.state.tentangevents.filter(tentangevents)=>{
+      return event.tentangevents.toLowerCase().indexOf(this.state.search.toLowerCase())!=1
+    }
     // Get current posts
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
@@ -109,7 +113,7 @@ class Eventlist extends Component {
                 type="text"
                 placeholder="Search for Podcast"
                 value={this.state.input}
-                onChange={this.handleInput}
+                onChange={this.updateSearch.bind(this)}
               />
               <button onClick={this.handleButton} type="button">
                 Search
