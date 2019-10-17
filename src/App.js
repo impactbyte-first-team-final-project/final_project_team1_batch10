@@ -16,11 +16,7 @@ import ModalLoading from "./components/loading";
 import ModalSign from "./components/modal_sign";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -31,20 +27,20 @@ function App() {
       <NavHeader />
       {/* <Stickynavbar /> */}
       <Router>
-          <Switch>
-            <Route exact path="/">
-              <Mainpage />
-            </Route>
-            <Route path="/eventlist">
-              <Eventlist />
-            </Route>
-            <Route path="/eventdetail">
-              <DetailEvents />
-            </Route>
-            <Route path="/createevent">
-              <FormEo />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Mainpage />
+          </Route>
+          <Route path="/eventlist">
+            <Eventlist />
+          </Route>
+          <Route path="/eventdetail/:id">
+            <DetailEvents />
+          </Route>
+          <Route path="/createevent">
+            <FormEo />
+          </Route>
+        </Switch>
       </Router>
       <Footer />
       {/* <Router>

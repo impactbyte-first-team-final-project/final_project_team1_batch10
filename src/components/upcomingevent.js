@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Slider from "react-slick";
-import { withRouter} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import {
   Card,
   CardImg,
@@ -40,16 +40,16 @@ class Upcomingevent extends React.Component {
         }
     render() {
     var settings = {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1
     };
     // console.log(this.props);
     
     return (
-        <div>
+      <div>
         <Slider ref={c => (this.slider = c)} {...settings}>
         {this.state.Thismonthevents.length > 0 && this.state.Thismonthevents.map((event,index) =>
         <div key={index}>
@@ -83,9 +83,17 @@ class Upcomingevent extends React.Component {
         </div>
         )}
         </Slider>
-            <i className="fa fa-arrow-circle-left fa-2x PointerKursor slickArrowLeft" aria-hidden="true" onClick={this.previous}></i>
-            <i className="fa fa-arrow-circle-right fa-2x PointerKursor slickArrowRight" aria-hidden="true" onClick={this.next}></i>
-        </div>
+        <i
+          className="fa fa-arrow-circle-left fa-2x PointerKursor slickArrowLeft"
+          aria-hidden="true"
+          onClick={this.previous}
+        ></i>
+        <i
+          className="fa fa-arrow-circle-right fa-2x PointerKursor slickArrowRight"
+          aria-hidden="true"
+          onClick={this.next}
+        ></i>
+      </div>
     );
   }
 }

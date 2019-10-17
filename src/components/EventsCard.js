@@ -11,12 +11,11 @@ import { connect } from "react-redux";
 import Upcomingevent from "./upcomingevent";
 import Thismonthevent from "./thismonthevents";
 class EventsCard extends Component {
-
   participate = () => {
-    if(this.props.islogin ===true){
-        alert("Anda mengikuti event ini")
+    if (this.props.islogin === true) {
+      alert("Anda mengikuti event ini");
     } else {
-        this.props.dispatch({ type: 'MODAL_LOGIN' })
+      this.props.dispatch({ type: "MODAL_LOGIN" });
     }
   };
   render() {
@@ -25,26 +24,46 @@ class EventsCard extends Component {
         <Card>
           <CardHeader className="testcolor">
             <Row className="fullwidht">
-              <Col xs="10"><h1>This Month Events</h1></Col>
-              <Col xs="2" className="PointerKursor itemaligncenter justcontentright" onClick={() => this.props.history.push({pathname: '/eventlist'})}><span>See More ...</span></Col>
+              <Col xs="10">
+                <h1>This Month Events</h1>
+              </Col>
+              <Col
+                xs="2"
+                className="PointerKursor itemaligncenter justcontentright"
+                onClick={() =>
+                  this.props.history.push({ pathname: "/eventlist" })
+                }
+              >
+                <span>See More ...</span>
+              </Col>
             </Row>
           </CardHeader>
         </Card>
         <Card className="centercontent">
-          <CardBody style={{width:"99%"}}>
+          <CardBody style={{ width: "99%" }}>
             <Thismonthevent />
           </CardBody>
         </Card>
         <Card>
           <CardHeader className="testcolor">
             <Row className="fullwidht">
-              <Col xs="10"><h1>Upcoming Events</h1></Col>
-              <Col xs="2" className="PointerKursor itemaligncenter justcontentright" onClick={() => this.props.history.push({pathname: '/eventlist'})}><span>See More ...</span></Col>
+              <Col xs="10">
+                <h1>Upcoming Events</h1>
+              </Col>
+              <Col
+                xs="2"
+                className="PointerKursor itemaligncenter justcontentright"
+                onClick={() =>
+                  this.props.history.push({ pathname: "/eventlist" })
+                }
+              >
+                <span>See More ...</span>
+              </Col>
             </Row>
           </CardHeader>
         </Card>
         <Card className="centercontent">
-          <CardBody style={{width:"99%"}}>
+          <CardBody style={{ width: "99%" }}>
             <Upcomingevent />
           </CardBody>
         </Card>
