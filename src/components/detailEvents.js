@@ -34,8 +34,8 @@ class DetailEvents extends Component {
       eventDetail: {}
     }
   };
-  componentDidMount = () => {
-    //console.log(this.props, "props");
+
+  componentDidMount() {
     const id = { idevent: this.props.match.params.id };
 
     console.log(id);
@@ -47,17 +47,26 @@ class DetailEvents extends Component {
 
         this.setState({
           namaevents: response.data.result[0].namaevents,
-          startdateevents: response.data[0].startdateevents
+          startdateevents: response.data.result[0].startdateevents,
+          eoname: response.data.result[0].eoname,
+          starttimeevents: response.data.result[0].starttimeevents,
+          endtimeevents: response.data.result[0].endtimeevents,
+          city: response.data.result[0].city,
+          bootorroomname: response.data.result[0].bootorroomname,
+          eventpict: response.data.result[0].eventpict,
+          boothorroomlarge: response.data.result[0].boothorroomlarge
         });
+        console.log(response.data[0]);
       })
       .catch(error => {});
-  };
+  }
 
   backtohome = () => {
     this.props.history.push({
       pathname: "/"
     });
   };
+
   participate = () => {
     if (this.props.islogin === true) {
       alert("Anda mengikuti event ini");
@@ -65,7 +74,11 @@ class DetailEvents extends Component {
       this.props.dispatch({ type: "MODAL_LOGIN" });
     }
   };
+
   render() {
+    console.log(this.props.match.params.id);
+    console.log(true);
+
     return (
       <div>
         <Container fluid style={{ padding: "3em" }}>
@@ -85,22 +98,23 @@ class DetailEvents extends Component {
                 <Col xs="12">
                   <h5>Diselenggarakan oleh</h5>
                   <i className="fa fa-users" aria-hidden="true">
-                    Danone Group
+                    {this.state.eoname}
                   </i>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
                   <h5>Tanggal dan waktu</h5>
-                  <i className="fa fa-calendar" aria-hidden="true">
-                    {" "}
-                    {this.state.startdateevents} - 29 Okt 2019
-                  </i>
+                  <p>
+                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                  </p>
+                  <p>{this.state.startdateevents}</p>
+
                   <br />
-                  <i className="fa fa-clock-o" aria-hidden="true">
-                    {" "}
-                    08:00 - 17:00 WIB
-                  </i>
+                  <p>
+                    <i className="fa fa-clock-o" aria-hidden="true"></i>
+                    {this.state.starttimeevents} - {this.state.endtimeevents}`
+                  </p>
                 </Col>
               </Row>
               <Row>
@@ -109,7 +123,7 @@ class DetailEvents extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs="6">kota:</Col>
+                <Col xs="6">kota: {this.state.city}</Col>
                 <Col xs="6">provinsi:</Col>
               </Row>
               <Row>
