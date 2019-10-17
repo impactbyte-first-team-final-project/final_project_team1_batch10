@@ -22,7 +22,8 @@ class Eventlist extends Component {
     currentPage: 1,
     postsPerPage: 3,
     tentangevents: [],
-    input: ""
+    input: "",
+    allEvents:[]
   };
   componentDidMount = () => {
     axios

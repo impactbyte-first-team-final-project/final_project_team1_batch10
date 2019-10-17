@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from 'react-redux';
 
 function SignInAdmin(props) {
-  const [value, setValue] = useState({ id_admin: "", pass_admin: "");
+  const [value, setValue] = useState({ id_admin: "", pass_admin: ""});
 
   function handleSubmit(event) {
     event.preventDefault();
