@@ -59,26 +59,12 @@ class Eventlist extends Component {
   };
 
   render() {
-<<<<<<< HEAD
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = this.state.tentangevents.slice(
       indexOfFirstPost,
       indexOfLastPost
     );
-=======
-    //search
-    // let filtered=this.state.tentangevents.filter(tentangevents) => {
-    //   return event.tentangevents.toLowerCase().indexOf(this.state.search.toLowerCase())!=1
-    // }
-    // Get current posts
-    // const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
-    // const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
-    // const currentPosts = this.state.tentangevents.slice(
-    //   indexOfFirstPost,
-    //   indexOfLastPost
-    // );
->>>>>>> 77e937604dda4d202d6a56d05a19c83fb9796547
     // Change page
     const paginate = pageNumber => this.setState({ currentPage: pageNumber });
     let PeopleCards = currentPosts.map(event => {
