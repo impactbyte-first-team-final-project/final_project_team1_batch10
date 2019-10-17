@@ -11,6 +11,7 @@ import Eventlist from "./components/eventlist";
 import DetailEvents from "./components/detailEvents";
 import Mainpage from "./components/mainpage";
 import FormEo from "./components/formEo";
+import FormDetail from "./components/formDetail";
 import NavHeader from "./components/navheader";
 // import Stickynavbar from "./components/stickynavbar";
 import Footer from "./components/footer";
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path="/adminpage">
             <NavBarAdmin />
+          </Route>
+          <Route path="/formeventdetail/:id">
+            <FormDetail />
           </Route>
         </Switch>
       </Router>
