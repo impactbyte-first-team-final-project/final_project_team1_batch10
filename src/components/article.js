@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; 
 import {
   Container,
   FormGroup,
@@ -11,14 +12,45 @@ import {
 
 export default function Article(props) {
   const [value, setValue] = useState({
-    title: "",
-    body: "",
-    footer: ""
+    titlearticle: "",
+    bodyarticle: "",
+    footerarticle: "",
+    files:""
   });
+
   console.log(value)
   function handleSubmit(event) {
     event.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append("titlearticle", value.titlearticle);
+    formData.append("bodyarticle", value.bodyarticle);
+    formData.append("footerarticle", value.footerarticle);
+    formData.append("files", value.files);
+
+    axios
+      .post(`https://my-mysql-api.herokuapp.com/artikel`, formData,  {
+        headers: {
+          "Access-Control-Allow-Origin": '*'
+        }
+      })
+      .then(result => {
+        alert(`Article Submit Success`)
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
+
+  function handleImage(event) {
+    setValue({
+      files: event.target.files[0],
+      // previewImage: URL.createObjectURL(event.target.files[0])
+    });
+  };
+
+
 
   function handleChange(event) {
     setValue({
@@ -33,28 +65,28 @@ export default function Article(props) {
       </h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label for="title">Article Title</Label>
-          <Input type="textarea" name="title" onChange={handleChange} />
+          <Label for="titlearticle">Article Title</Label>
+          <Input type="textarea" name="titlearticle" onChange={handleChange} />
         </FormGroup>
 
         <FormGroup>
-          <Label for="body">Article Body</Label>
+          <Label for="bodyarticle">Article Body</Label>
           <Input
             type="textarea"
-            name="body"
+            name="bodyarticle"
             style={{ height: "35vh" }}
             onChange={handleChange}
           />
         </FormGroup>
 
         <FormGroup>
-          <Label for="footer">Article Footer</Label>
-          <Input type="textarea" name="footer" onChange={handleChange} />
+          <Label for="footerarticle">Article Footer</Label>
+          <Input type="textarea" name="footerarticle" onChange={handleChange} />
         </FormGroup>
 
         <FormGroup>
           <Label for="picture">Upload article photo</Label>
-          <Input type="file" name="picture" />
+          <Input type="file" name="picture" onChange={handleImage} />
           <FormText color="muted">Upload one photo</FormText>
         </FormGroup>
 

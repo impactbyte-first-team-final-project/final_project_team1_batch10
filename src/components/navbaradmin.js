@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -18,7 +19,14 @@ import Modaladdadmin from "./modaladdadmin";
 import Article from "./article";
 import EventTable from "./eventTable";
 
+
 const NavBarAdmin = props => {
+
+  function handleClose(event) {
+    event.preventDefault(props);
+    props.history.push("/admin")
+    }
+
   return (
     <Router>
       <div>
@@ -34,7 +42,7 @@ const NavBarAdmin = props => {
 
             <Col xs={6}>
               <NavItem>
-                <Button color="secondary">Log Out</Button>{" "}
+                <Button color="secondary" onClick={handleClose}>Log Out</Button>{" "}
               </NavItem>
             </Col>
           </Nav>
@@ -71,4 +79,4 @@ const NavBarAdmin = props => {
   );
 };
 
-export default NavBarAdmin;
+export default withRouter(NavBarAdmin);
