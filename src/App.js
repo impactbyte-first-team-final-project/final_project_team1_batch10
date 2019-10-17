@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./assets/css/testhero1.css";
 import "./assets/font-awesome/css/font-awesome.min.css";
+import NavBarAdmin from "./components/navbaradmin";
+import SignInAdmin from "./components/loginadmin";
 import Ceklogin from "./components/ceklogin";
 import Eventlist from "./components/eventlist";
 import DetailEvents from "./components/detailEvents";
@@ -24,25 +26,37 @@ function App() {
       <Ceklogin />
       <ModalSign />
       <ModalLoading />
-      <NavHeader />
       {/* <Stickynavbar /> */}
       <Router>
         <Switch>
           <Route exact path="/">
+            <NavHeader />
             <Mainpage />
+            <Footer />
           </Route>
           <Route path="/eventlist">
+            <NavHeader />
             <Eventlist />
+            <Footer />
           </Route>
           <Route path="/eventdetail/:id">
+            <NavHeader />
             <DetailEvents />
+            <Footer />
           </Route>
           <Route path="/createevent">
+            <NavHeader />
             <FormEo />
+            <Footer />
+          </Route>
+          <Route path="/admin">
+            <SignInAdmin />
+          </Route>
+          <Route path="/adminpage">
+            <NavBarAdmin />
           </Route>
         </Switch>
       </Router>
-      <Footer />
       {/* <Router>
         {<Route path="/tabs" exact component={TabsSign} />}
       </Router> */}

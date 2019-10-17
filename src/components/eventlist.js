@@ -21,8 +21,8 @@ class Eventlist extends Component {
     currentPage: 1,
     postsPerPage: 4,
     tentangevents: [],
-    tentangEventsTemp: [],
-    input: ""
+    input: "",
+    allEvents: []
   };
   componentDidMount = () => {
     axios
@@ -30,7 +30,7 @@ class Eventlist extends Component {
       .then(response => {
         this.setState({
           tentangevents: response.data.result,
-          tentangEventsTemp: response.data.result
+          allEvents: response.data.result
         });
       })
       .catch(error => {});
@@ -62,8 +62,25 @@ class Eventlist extends Component {
       // )
     });
   };
+
+  searchEvent = event => {
+    this.setState({
+      input: event.target.value,
+      tentangevents: this.state.allEvents.filter(post => {
+        const { eventpict, ...restPost } = post;
+        return Object.keys(restPost).some(key => {
+          return (
+            post[key]
+              .toString()
+              .toLowerCase()
+              .search(event.target.value.toString().toLowerCase()) !== -1
+          );
+        });
+      })
+    });
+  };
+
   render() {
-    // Get current posts
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = this.state.tentangevents.slice(
@@ -72,8 +89,52 @@ class Eventlist extends Component {
     );
     // Change page
     const paginate = pageNumber => this.setState({ currentPage: pageNumber });
-
-    // let PeopleCards =
+    let PeopleCards = currentPosts.map(event => {
+      return (
+        <Col xs="4">
+          <Card className="mrgtopbtm1em">
+            <CardImg top width="100%" src={image1} alt="Card image cap" />
+            <CardBody>
+              <CardTitle className="testcolor" style={{ fontSize: "17px" }}>
+                {event.namaevents}
+              </CardTitle>
+              <CardSubtitle
+                style={{
+                  fontFamily: "Times New Roman",
+                  fontWeight: "bold"
+                }}
+              >
+                <p>
+                  <i className="fa fa-map-marker" aria-hidden="true">
+                    {event.eventlocation}
+                  </i>
+                  <br />
+                  <i className="fa fa-calendar" aria-hidden="true">
+                    {event.startdateevents}
+                  </i>
+                </p>
+              </CardSubtitle>
+              <CardText>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content content.
+              </CardText>
+              <Button
+                block
+                className="bgblooddonor"
+                onClick={() =>
+                  this.props.history.push({
+                    pathname: `/eventdetail/${event.idevents}`,
+                    state: { idevent: 333 }
+                  })
+                }
+              >
+                Lihat detail event
+              </Button>
+            </CardBody>
+          </Card>
+        </Col>
+      );
+    });
     return (
       <div>
         <Container fluid style={{ padding: "1em" }}>
@@ -81,9 +142,10 @@ class Eventlist extends Component {
             <form>
               <input
                 type="text"
-                placeholder="Search for Events"
-                value={this.stateinput}
-                onChange={this.handleInput}
+                placeholder="Search for Podcast"
+                onChange={this.searchEvent}
+                name="input"
+                value={this.state.input}
               />
             </form>
           </div>
