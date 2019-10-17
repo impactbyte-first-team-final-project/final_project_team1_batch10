@@ -27,8 +27,8 @@ export default function Article(props) {
     });
   }
   return (
-    <Container style={{ marginBottom: "50px" }}>
-      <h2 style={{ textAlign: "center", marginTop: "5%" }}>
+    <Container style={{ marginBottom: "50px", padding:"0px" }}>
+      <h2 style={{ textAlign: "center", marginTop: "1%" }}>
         Submit Event Article
       </h2>
       <Form onSubmit={handleSubmit}>
