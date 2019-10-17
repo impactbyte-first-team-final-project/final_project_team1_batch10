@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import Homepage from "./main";
 import EventsCard from "./EventsCard";
 import Testhero1 from "./testhero1";
+// import FormDetail from "./formDetail";
+// import Testkirimemail from "./testkirimemail";
 
 class Mainpage extends PureComponent {
     render() {
@@ -10,6 +12,8 @@ class Mainpage extends PureComponent {
                 <Homepage />
                 <Testhero1 />
                 <EventsCard />
+                {/* <FormDetail /> */}
+                {/* <Testkirimemail /> */}
             </div>
         )
     }

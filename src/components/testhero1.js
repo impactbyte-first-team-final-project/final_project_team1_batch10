@@ -7,7 +7,7 @@ import {
 import {
   Link
 } from "react-router-dom";
-import HelloWorld from "./sweetalerttest";
+// import HelloWorld from "./sweetalerttest";
 class Testhero1 extends PureComponent {
     render() {
         return (

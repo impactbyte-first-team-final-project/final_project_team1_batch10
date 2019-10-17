@@ -53,6 +53,10 @@ class SignIn extends Component {
             prm_akun_stat: "",
             prm_pass_stat: ""
           });
+          let userInfo=JSON.stringify(result.data.result1[0]);
+          sessionStorage.setItem("logininfo", userInfo);
+          this.props.dispatch({ type: "USER_INFO", payload: result.data.result1[0] });
+          
         }
       })
       .catch(error => {
@@ -95,7 +99,7 @@ class SignIn extends Component {
               required
             />
           </FormGroup>
-          <Button className="btn-block bgblooddonor">
+          <Button className="btn-block bgblooddonor" type="submit">
             Submit
           </Button>
         </Form>

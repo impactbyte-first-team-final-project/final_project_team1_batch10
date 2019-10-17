@@ -31,7 +31,6 @@ export const signIn = data => dispatch => {
       }
     })
     .then(result => {
-        console.log(result)
       if (result.data.message === "Akun tidak ditemukan") {
         // setValue({
         //   ...value,
