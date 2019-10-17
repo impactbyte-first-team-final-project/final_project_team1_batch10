@@ -142,7 +142,7 @@ class Eventlist extends Component {
             <form>
               <input
                 type="text"
-                placeholder="Search for Podcast"
+                placeholder="Search for Events"
                 onChange={this.searchEvent}
                 name="input"
                 value={this.state.input}
