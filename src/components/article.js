@@ -15,7 +15,7 @@ export default function Article(props) {
     body: "",
     footer: ""
   });
-  // console.log(value)
+  console.log(value)
   function handleSubmit(event) {
     event.preventDefault();
   }

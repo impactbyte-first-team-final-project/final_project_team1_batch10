@@ -21,6 +21,7 @@ const signInFailed = error => {
 };
 
 export const signIn = data => dispatch => {
+    console.log(true)
   dispatch(signInStart());
 
   axios

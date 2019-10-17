@@ -29,7 +29,8 @@ class Eventlist extends Component {
       .get(`https://my-mysql-api.herokuapp.com/events/approved`)
       .then(response => {
         this.setState({
-          tentangevents: response.data.result
+          tentangevents: response.data.result,
+          allEvents: response.data.result
         });
       })
       .catch(error => {});
@@ -39,13 +40,25 @@ class Eventlist extends Component {
       input: event.target.value
     });
   };
-  render() {
-    //search
-    // let filtered=this.state.tentangevents.filter(tentangevents) => {
-    //   return event.tentangevents.toLowerCase().indexOf(this.state.search.toLowerCase())!=1
-    // }
 
-    // Get current posts
+  searchEvent = event => {
+    this.setState({
+      input: event.target.value,
+      tentangevents: this.state.allEvents.filter(post => {
+        const { eventpict, ...restPost } = post;
+        return Object.keys(restPost).some(key => {
+          return (
+            post[key]
+              .toString()
+              .toLowerCase()
+              .search(event.target.value.toString().toLowerCase()) !== -1
+          );
+        });
+      })
+    });
+  };
+
+  render() {
     const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
     const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
     const currentPosts = this.state.tentangevents.slice(
@@ -54,12 +67,7 @@ class Eventlist extends Component {
     );
     // Change page
     const paginate = pageNumber => this.setState({ currentPage: pageNumber });
-
-    console.log(this.state.currentPage);
-
     let PeopleCards = currentPosts.map(event => {
-
-
       return (
         <Col xs="4">
           <Card className="mrgtopbtm1em">
@@ -113,8 +121,9 @@ class Eventlist extends Component {
               <input
                 type="text"
                 placeholder="Search for Podcast"
+                onChange={this.searchEvent}
+                name="input"
                 value={this.state.input}
-                onChange={this.updateSearch.bind(this)}
               />
               <button onClick={this.handleButton} type="button">
                 Search

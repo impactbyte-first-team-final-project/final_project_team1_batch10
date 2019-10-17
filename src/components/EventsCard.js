@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import { withRouter} from 'react-router-dom';
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Row,
-  Col
-} from "reactstrap";
+import { withRouter } from "react-router-dom";
+import { Card, CardBody, CardHeader, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import Upcomingevent from "./upcomingevent";
 import Thismonthevent from "./thismonthevents";

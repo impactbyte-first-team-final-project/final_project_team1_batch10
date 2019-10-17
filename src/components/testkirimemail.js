@@ -34,7 +34,7 @@ class Testkirimemail extends Component {
     //       },
     //       crossDomain: true
     //     });
-        // console.log(this.state.email);
+        console.log(this.state.email);
         alert("Berhasil mengirim email");
         this.props.dispatch({ type: "LOADINGTOGGLE" });
         this.setState({

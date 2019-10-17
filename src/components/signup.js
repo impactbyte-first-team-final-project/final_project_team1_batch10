@@ -56,7 +56,7 @@ function SignUp(props) {
 
       })
       .catch(error => {
-        // console.log(error);
+        console.log(error);
         props.dispatch({ type: "LOADINGTOGGLE" });
       });
     }

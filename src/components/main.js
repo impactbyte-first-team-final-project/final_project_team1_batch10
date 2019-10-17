@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
 
-import {
-  Container,
-  Card,
-  CardBody,
-  Row,
-  Col
-} from "reactstrap";
+import { Container, Card, Row, CardBody, Col } from "reactstrap";
 class Homepage extends Component {
   render() {
     return (
