@@ -34,7 +34,7 @@ class Thismonthevent extends React.Component {
             this.setState({ 
                 Thismonthevents:res.data.result
             })
-            console.log(res.data.result);
+            console.log(res.data.result,"cek ini");
             console.log(this.state.Thismonthevents);
             })
         }
@@ -66,16 +66,17 @@ class Thismonthevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> {event.eventlocation}</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> {event.startdateevents} s/d {event.enddateevents}</i><br />
+                    <i className="fa fa-clock-o" aria-hidden="true"> {event.starttimeevents} s/d {event.endtimeevents}</i>
+                    
                     </p>
                     </CardSubtitle>
                     <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content content.
+                    {event.eventdescription}
                     </CardText>
                     <Button block className="bgblooddonor" onClick={() => this.props.history.push({
-                        pathname: '/eventdetail',
+                        pathname: `/eventdetail/${event.idevents}`,
                         state: { idevent: 123 }
                         })}>Lihat detail event</Button>
                 </CardBody>
