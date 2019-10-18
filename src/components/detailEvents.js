@@ -69,9 +69,11 @@ class DetailEvents extends Component {
 
   participate = () => {
     const value = {
-      idevents: this.state.idevents,
-      id_user: this.state.id_user
+      idevent: this.state.idevents,
+      iduser: this.state.id_user
     };
+    console.log();
+
     if (this.props.islogin === true) {
       axios
         .post(` https://my-mysql-api.herokuapp.com/events/participate`, value, {
