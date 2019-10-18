@@ -54,7 +54,7 @@ class Thismonthevent extends React.Component {
         {this.state.Thismonthevents.length > 0 && this.state.Thismonthevents.map((event,index) =>
         <div key={index}>
             <Card className="mrgtopbtm1em">
-                <CardImg top width="100%" src={image1} alt="Card image cap" />
+                <CardImg top width="100%" src={event.eventpict == null ? image1 : event.eventpict} alt="Card image cap" />
                 <CardBody>
                     <CardTitle className="testcolor" style={{ fontSize: "25px",minHeight:"4em" }}>
                     {event.namaevents}
