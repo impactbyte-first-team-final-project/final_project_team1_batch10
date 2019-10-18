@@ -164,6 +164,7 @@ class Eventlist extends Component {
                             <CardImg
                               top
                               width="100%"
+                              style={{ minHeight: "200px" }}
                               src={
                                 event.eventpict
                                   ? event.eventpict

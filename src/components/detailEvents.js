@@ -38,8 +38,6 @@ class DetailEvents extends Component {
   componentDidMount() {
     const id = { idevent: this.props.match.params.id };
 
-    console.log(id);
-
     axios
       .post(`https://my-mysql-api.herokuapp.com/events/id`, id)
       .then(response => {
@@ -55,6 +53,11 @@ class DetailEvents extends Component {
           bootorroomname: response.data.result[0].bootorroomname,
           eventpict: response.data.result[0].eventpict,
           boothorroomlarge: response.data.result[0].boothorroomlarge,
+          eventpict: response.data.result[0].eventpict,
+          eventdescription: response.data.result[0].eventdescription,
+          province: response.data.result[0].province,
+          rundown: response.data.result[0].rundown,
+          floorplan: response.data.result[0].floorplan,
           id_user: response.data.result[0].id_user.split(",")
         });
       })
@@ -88,42 +91,6 @@ class DetailEvents extends Component {
         .catch(error => {
           console.log(error);
         });
-      // let dataforupdate = this.state.id_user;
-      // let updatedata = dataforupdate.push(this.props.userinfo.id_user);
-      // this.setState({
-      //   ...this.state,
-      //   id_user: updatedata
-      // });
-      // let cekParticipation = this.state.id_user.find(
-      //   id => id === this.props.userinfo.id_user
-      // );
-      // console.log(cekParticipation);
-      // if (cekParticipation) {
-      //   alert("Anda sudah berpartisipasi dalam event ini");
-      // } else {
-      //   axios
-      //     .post(
-      //       ` https://my-mysql-api.herokuapp.com/events/participate`,
-      //       value,
-      //       {
-      //         headers: {
-      //           "Access-Control-Allow-Origin": "*"
-      //         }
-      //       }
-      //     )
-      //     .then(result => {
-      //       alert(`Anda telah terdaftar!`);
-      //     })
-      //     .catch(error => {
-      //       console.log(error);
-      //     });
-      //   let dataforupdate = this.state.id_user;
-      //   let updatedata = dataforupdate.push(this.props.userinfo.id_user);
-      //   this.setState({
-      //     ...this.state,
-      //     id_user: updatedata
-      //   });
-      // }
     } else {
       this.props.dispatch({ type: "MODAL_LOGIN" });
     }
@@ -140,63 +107,162 @@ class DetailEvents extends Component {
         <Container fluid style={{ padding: "3em" }}>
           <Row>
             <Col xs="8">
-              <img src={img1} alt="" style={{ width: "100%" }} />
+              <img
+                src={this.state.eventpict}
+                alt=""
+                style={{ width: "100%" }}
+              />
             </Col>
             <Col xs="4">
               <Row>
                 <Col xs="12">
-                  <h1 style={{ fontSize: "3em", color: "red" }}>
+                  <h5
+                    style={{
+                      color: "#fd7e14",
+                      fontFamily: "sans-serif",
+                      textTransform: "uppercase",
+                      fontSize: "25px",
+                      fontWeight: "bolder"
+                    }}
+                  >
                     {this.state.namaevents}
-                  </h1>
+                  </h5>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Diselenggarakan oleh</h5>
-                  <i className="fa fa-users" aria-hidden="true">
-                    {this.state.eoname}
-                  </i>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Diselenggarakan oleh
+                  </h5>
+                  <i className="fa fa-users" aria-hidden="true"></i>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize"
+                    }}
+                  >{` ${this.state.eoname}`}</h5>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Tanggal dan waktu</h5>
                   <p>
-                    <i className="fa fa-calendar" aria-hidden="true"></i>
+                    <h5
+                      style={{
+                        fontSize: "15px",
+                        textTransform: "capitalize",
+                        fontWeight: "bold"
+                      }}
+                    >
+                      Tanggal dan waktu
+                    </h5>
                   </p>
+
+                  <i className="fa fa-calendar" aria-hidden="true"></i>
+
                   <p>{this.state.startdateevents}</p>
 
                   <br />
+                  <i className="fa fa-clock-o" aria-hidden="true"></i>
                   <p>
-                    <i className="fa fa-clock-o" aria-hidden="true"></i>
                     {this.state.starttimeevents} - {this.state.endtimeevents}`
                   </p>
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Lokasi</h5>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Lokasi
+                  </h5>
                 </Col>
               </Row>
               <Row>
-                <Col xs="6">kota: {this.state.city}</Col>
-                <Col xs="6">provinsi:</Col>
+                <Col
+                  xs="6"
+                  style={{
+                    fontSize: "15px",
+                    textTransform: "capitalize",
+                    fontWeight: "bold"
+                  }}
+                >
+                  kota:
+                  <h5
+                    style={{
+                      fontSize: "15px"
+                    }}
+                  >
+                    {" "}
+                    {this.state.city}
+                  </h5>
+                </Col>
+                <Col
+                  xs="6"
+                  style={{
+                    fontSize: "15px",
+                    textTransform: "capitalize",
+                    fontWeight: "bold"
+                  }}
+                >
+                  Provinsi:{" "}
+                  <h5
+                    style={{
+                      fontSize: "15px"
+                    }}
+                  >
+                    {this.state.province}
+                  </h5>
+                </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Nama booth atau ruangan</h5>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Nama booth atau ruangan
+                  </h5>
                   anggrek
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Ukuran booth atau ruangan</h5>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Ukuran booth atau ruangan
+                  </h5>
                   3x3 M
                 </Col>
               </Row>
               <Row>
                 <Col xs="12">
-                  <h5>Gift For Participant</h5>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Gift For Participant
+                  </h5>
                   susu beruang
                 </Col>
               </Row>
@@ -207,47 +273,44 @@ class DetailEvents extends Component {
             <Col xs="8">
               <Row>
                 <Col xs="12">
-                  <h5>Description</h5>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Description
+                  </h5>
                   <p>
-                    It is the grandiose vision of the Dream World Wide program
-                    to allow learning of the original Arabic language of the
-                    Quran easy to learn and accessible regardless of a person's
-                    language of origin. We want to empower as many students and
-                    teachers around the world as possible with our unprecedented
-                    Qur'anic language curriculum and hope to create a worldwide
-                    network of students that learn from each other and their
-                    instructions and remain connected indefinitely. Join us
-                    today to begin your journey!
+                    <h5>{this.state.eventdescription}</h5>
                   </p>
                 </Col>
                 <Col xs="12">
-                  <h5>Rundown event</h5>
-                  <p>
-                    It is the grandiose vision of the Dream World Wide program
-                    to allow learning of the original Arabic language of the
-                    Quran easy to learn and accessible regardless of a person's
-                    language of origin. We want to empower as many students and
-                    teachers around the world as possible with our unprecedented
-                    Qur'anic language curriculum and hope to create a worldwide
-                    network of students that learn from each other and their
-                    instructions and remain connected indefinitely. Join us
-                    today to begin your journey!
-                  </p>
+                  <h5
+                    style={{
+                      fontSize: "15px",
+                      textTransform: "capitalize",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Rundown event
+                  </h5>
+                  <p>{this.state.rundown}</p>
                 </Col>
               </Row>
             </Col>
             <Col xs="4">
-              <h5>Denah</h5>
-              <p>
-                It is the grandiose vision of the Dream World Wide program to
-                allow learning of the original Arabic language of the Quran easy
-                to learn and accessible regardless of a person's language of
-                origin. We want to empower as many students and teachers around
-                the world as possible with our unprecedented Qur'anic language
-                curriculum and hope to create a worldwide network of students
-                that learn from each other and their instructions and remain
-                connected indefinitely. Join us today to begin your journey!
-              </p>
+              <h5
+                style={{
+                  fontSize: "15px",
+                  textTransform: "capitalize",
+                  fontWeight: "bold"
+                }}
+              >
+                Denah
+              </h5>
+              <p>{this.state.floorplan}</p>
             </Col>
           </Row>
           <Row>
