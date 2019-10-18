@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { withRouter } from "react-router-dom";
@@ -46,82 +46,105 @@ class Thismonthevent extends React.Component {
       infinite: false,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
     // console.log(this.props);
 
     return (
-      <div>
+      <Fragment>
         <Slider ref={c => (this.slider = c)} {...settings}>
           {this.state.Thismonthevents.length > 0 &&
             this.state.Thismonthevents.map((event, index) => (
-              <div key={index}>
-                <Card className="mrgtopbtm1em">
-                  <CardBody style={{ padding: "0px" }}>
-                    <img
-                      className="fitimg"
-                      src={
-                        event.eventpict
-                          ? event.eventpict
-                          : "https://via.placeholder.com/300x200"
-                      }
-                      alt="image"
-                    />
-                  </CardBody>
-                  <CardBody>
-                    <CardTitle
-                      className="testcolor"
-                      style={{ fontSize: "25px", minHeight: "3em" }}
-                    >
-                      <h5 style={{ textTransform: "uppercase" }}>
-                        {event.namaevents}
-                      </h5>
-                    </CardTitle>
-                    <CardSubtitle
-                      style={{
-                        fontFamily: "Times New Roman",
-                        fontWeight: "bold",
-                        minHeight: "5em"
-                      }}
-                    >
-                      <p>
-                        <i
-                          className="fa fa-map-marker"
-                          aria-hidden="true"
-                          style={{ textTransform: "capitalize" }}
-                        >
-                          {`  ${event.eventlocation}`}
-                        </i>
-                        <br />
-                        <i className="fa fa-calendar" aria-hidden="true">
-                          {` ${event.startdateevents}`} s/d
-                          {` ${event.enddateevents}`}
-                        </i>
-                        <br />
-                        <i className="fa fa-clock-o" aria-hidden="true">
-                          {" "}
-                          {event.starttimeevents} s/d {event.endtimeevents}
-                        </i>
-                      </p>
-                    </CardSubtitle>
-                    <CardText style={{ minHeight: "3em" }}>
-                      {event.eventdescription}
-                    </CardText>
-                    <Button
-                      block
-                      className="bgblooddonor"
-                      onClick={() =>
-                        this.props.history.push({
-                          pathname: `/eventdetail/${event.idevents}`,
-                          state: { idevent: 123 }
-                        })
-                      }
-                    >
-                      Lihat detail event
-                    </Button>
-                  </CardBody>
-                </Card>
-              </div>
+              <Card className="mrgtopbtm1em" key={index}>
+                <CardBody style={{ padding: "0px" }}>
+                  <img
+                    className="fitimg"
+                    src={
+                      event.eventpict
+                        ? event.eventpict
+                        : "https://via.placeholder.com/300x200"
+                    }
+                    alt="fit"
+                  />
+                </CardBody>
+                <CardBody>
+                  <CardTitle
+                    className="testcolor"
+                    style={{ fontSize: "25px", minHeight: "3em" }}
+                  >
+                    <h5 style={{ textTransform: "uppercase" }}>
+                      {event.namaevents}
+                    </h5>
+                  </CardTitle>
+                  <CardSubtitle
+                    style={{
+                      fontFamily: "Times New Roman",
+                      fontWeight: "bold",
+                      minHeight: "5em"
+                    }}
+                  >
+                    <p>
+                      <i
+                        className="fa fa-map-marker"
+                        aria-hidden="true"
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        {`  ${event.eventlocation}`}
+                      </i>
+                      <br />
+                      <i className="fa fa-calendar" aria-hidden="true">
+                        {` ${event.startdateevents}`} s/d
+                        {` ${event.enddateevents}`}
+                      </i>
+                      <br />
+                      <i className="fa fa-clock-o" aria-hidden="true">
+                        {" "}
+                        {event.starttimeevents} s/d {event.endtimeevents}
+                      </i>
+                    </p>
+                  </CardSubtitle>
+                  <CardText style={{ minHeight: "3em" }}>
+                    {event.eventdescription}
+                  </CardText>
+                  <Button
+                    block
+                    className="bgblooddonor"
+                    onClick={() =>
+                      this.props.history.push({
+                        pathname: `/eventdetail/${event.idevents}`,
+                        state: { idevent: 123 }
+                      })
+                    }
+                  >
+                    Lihat detail event
+                  </Button>
+                </CardBody>
+              </Card>
             ))}
         </Slider>
         <i
@@ -134,7 +157,7 @@ class Thismonthevent extends React.Component {
           aria-hidden="true"
           onClick={this.next}
         ></i>
-      </div>
+      </Fragment>
     );
   }
 }
