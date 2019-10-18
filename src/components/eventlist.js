@@ -92,7 +92,7 @@ class Eventlist extends Component {
     );
     // Change page
     const paginate = pageNumber => this.setState({ currentPage: pageNumber });
-    let PeopleCards = currentPosts.map(event => {
+    currentPosts.map(event => {
       return (
         <Col xs="4">
           <Card className="mrgtopbtm1em">
@@ -201,10 +201,8 @@ class Eventlist extends Component {
                                   </i>
                                 </p>
                               </CardSubtitle>
-                              <CardText>
-                                Some quick example text to build on the card
-                                title and make up the bulk of the card's content
-                                content.
+                              <CardText style={{ minHeight: "50px" }}>
+                                {event.eventdescription}
                               </CardText>
                               <Button
                                 block
