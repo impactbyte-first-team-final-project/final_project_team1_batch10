@@ -225,7 +225,6 @@ class DetailEvents extends Component {
                   </Button>
                 </Col>
                 <Col xs="6">
-                  {this.state.participate ? (
                     <Button
                       className="bgblooddonor"
                       id="toggler"
@@ -235,7 +234,6 @@ class DetailEvents extends Component {
                     >
                       Ikuti event ini
                     </Button>
-                  ) : null}
                 </Col>
               </Row>
             </Col>
