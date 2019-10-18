@@ -28,7 +28,9 @@ function SignInAdmin(props) {
             idadmin: "",
             passadmin: "",
           });
-          props.history.push("/adminpage")
+          props.history.push("/admin-dashboard")
+          let adminInfo=JSON.stringify(result.data.result1[0]);
+          sessionStorage.setItem("adminlogininfo", adminInfo);
         }
       })
       .catch(error => {
@@ -69,7 +71,7 @@ function SignInAdmin(props) {
 
         />
       </FormGroup>
-      <Button style={{marginLeft:"32em"}} onClick={handleSubmit}>
+      <Button style={{marginLeft:"32em"}}>
         Submit
       </Button>
     </Form>
