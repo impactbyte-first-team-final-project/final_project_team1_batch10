@@ -11,7 +11,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
-import image1 from "../assets/img/1.jpg";
+import image1 from "../assets/img/tes.jpg";
 
 class Upcomingevent extends React.Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class Upcomingevent extends React.Component {
         {this.state.Thismonthevents.length > 0 && this.state.Thismonthevents.map((event,index) =>
         <div key={index}>
             <Card className="mrgtopbtm1em">
-                <CardImg top width="100%" src={image1} alt="Card image cap" />
+                <CardImg top width="100%" src={event.eventpict == null ? image1 : event.eventpict} alt="Card image cap" />
                 <CardBody>
                     <CardTitle className="testcolor" style={{ fontSize: "25px",minHeight:"4em" }}>
                     {event.namaevents}
@@ -66,16 +66,16 @@ class Upcomingevent extends React.Component {
                     }}
                     >
                     <p>
-                    <i className="fa fa-map-marker" aria-hidden="true"> Event Location</i><br />
-                    <i className="fa fa-calendar" aria-hidden="true"> Wed, Nov 20, 2019, 7:00 PM</i>
+                    <i className="fa fa-map-marker" aria-hidden="true"> {event.eventlocation}</i><br />
+                    <i className="fa fa-calendar" aria-hidden="true"> {event.startdateevents} s/d {event.enddateevents}</i><br />
+                    <i className="fa fa-clock-o" aria-hidden="true"> {event.starttimeevents} s/d {event.endtimeevents}</i>
                     </p>
                     </CardSubtitle>
                     <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content content.
+                    {event.eventdescription}
                     </CardText>
                     <Button block className="bgblooddonor" onClick={() => this.props.history.push({
-                        pathname: '/eventdetail',
+                        pathname: `/eventdetail/${event.idevents}`,
                         state: { idevent: 123 }
                         })}>Lihat detail event</Button>
                 </CardBody>
