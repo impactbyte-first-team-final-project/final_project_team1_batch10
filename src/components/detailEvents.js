@@ -69,10 +69,9 @@ class DetailEvents extends Component {
 
   participate = () => {
     const value = {
-      idevent: this.state.idevents,
-      iduser: this.state.id_user
+      idevent: this.props.match.params.id,
+      iduser: this.props.userinfo.id_user
     };
-    console.log();
 
     if (this.props.islogin === true) {
       axios
@@ -226,15 +225,17 @@ class DetailEvents extends Component {
                   </Button>
                 </Col>
                 <Col xs="6">
-                  <Button
-                    className="bgblooddonor"
-                    id="toggler"
-                    style={{ marginBottom: "1rem" }}
-                    onClick={this.participate}
-                    block
-                  >
-                    Ikuti event ini
-                  </Button>
+                  {this.state.participate ? (
+                    <Button
+                      className="bgblooddonor"
+                      id="toggler"
+                      style={{ marginBottom: "1rem" }}
+                      onClick={this.participate}
+                      block
+                    >
+                      Ikuti event ini
+                    </Button>
+                  ) : null}
                 </Col>
               </Row>
             </Col>
@@ -248,7 +249,8 @@ class DetailEvents extends Component {
 const mapStateToProps = state => {
   return {
     modalLogin: state.signInReducer.modalLogin,
-    islogin: state.reducer.islogin
+    islogin: state.reducer.islogin,
+    userinfo: state.reducer.userinfo
   };
 };
 
