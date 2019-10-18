@@ -22,10 +22,12 @@ class EventTable extends React.Component {
   }
 
   componentDidMount() {
+    
     axios
       .get(`https://my-mysql-api.herokuapp.com/events/unapprove`)
       .then(result => {
         this.setState({ data: result.data.result });
+       console.log(result.data) 
       })
       .catch(error => {
         console.log(error);
@@ -33,7 +35,7 @@ class EventTable extends React.Component {
       
   }
 
-  handleClick(id,email, status) {
+  handleClick(id,email, status, namaevents) {
     console.log("masuk");
 
     const data = {
@@ -61,7 +63,7 @@ class EventTable extends React.Component {
         fetch(`http://transdeal.co.id/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
       })
       .then(result=>{
-        alert(`${id} has been ${status}`)
+        alert(`${namaevents} has been ${status}`)
         // this.setState({showAlert:true
         })
       .catch(error => {
@@ -88,6 +90,7 @@ class EventTable extends React.Component {
                 <th>Event Date Finish</th>
                 <th>Event Time Start</th>
                 <th>Event Time Finish</th>
+                <th>EO Name</th>
                 <th>EO PIC</th>
                 <th>PIC Phone</th>
                 <th>EO Address</th>
@@ -99,12 +102,13 @@ class EventTable extends React.Component {
                 return (
                   <tr>
                     <td>{result.idevents}</td>
-                    <td>{result.namaevents}</td>
-                    <td>{result.startdate}</td>
-                    <td>{result.enddate}</td>
-                    <td>{result.starttime}</td>
-                    <td>{result.endtime}</td>
                     <td>{result.eventlocation}</td>
+                    <td>{result.namaevents}</td>
+                    <td>{result.startdateevents}</td>
+                    <td>{result.enddateevents}</td>
+                    <td>{result.starttimeevents}</td>
+                    <td>{result.endtimeevents}</td>
+                    <td>{result.eoname}</td>
                     <td>{result.pic}</td>
                     <td>{result.picphone}</td>
                     <td>{result.eooffice}</td>
@@ -114,7 +118,7 @@ class EventTable extends React.Component {
                           <Button
                           size="sm"
                             onClick={() =>
-                              this.handleClick(result.idevents,result.picemail,"APPROVED")
+                              this.handleClick(result.idevents,result.picemail,"APPROVED", result.namaevents)
                             }
                           >
                             Approve
@@ -126,7 +130,7 @@ class EventTable extends React.Component {
                           color="danger" 
                           size="sm"
                           onClick={() =>
-                            this.handleClick(result.idevents,result.picemail, "REJECTED")
+                            this.handleClick(result.idevents,result.picemail, "REJECTED",result.namaevents)
                           }
                           >
                             Decline</Button>
