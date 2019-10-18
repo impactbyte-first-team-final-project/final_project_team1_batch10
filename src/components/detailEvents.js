@@ -21,7 +21,7 @@ class DetailEvents extends Component {
       picemail: "",
       eooffice: "",
       approvalstatusevents: "",
-      id_user: "",
+      id_user: [],
       event_address: "",
       bootorroomname: "",
       boothorroomlarge: "",
@@ -43,7 +43,7 @@ class DetailEvents extends Component {
     axios
       .post(`https://my-mysql-api.herokuapp.com/events/id`, id)
       .then(response => {
-        console.log(response, "fffff");
+        // console.log(response, "fffff");
 
         this.setState({
           namaevents: response.data.result[0].namaevents,
@@ -54,10 +54,11 @@ class DetailEvents extends Component {
           city: response.data.result[0].city,
           bootorroomname: response.data.result[0].bootorroomname,
           eventpict: response.data.result[0].eventpict,
-          boothorroomlarge: response.data.result[0].boothorroomlarge
+          boothorroomlarge: response.data.result[0].boothorroomlarge,
+          id_user: response.data.result[0].id_user.split(",")
         });
-        console.log(response.data[0]);
       })
+      .then(() => console.log(this.state.id_user))
       .catch(error => {});
   }
 
@@ -74,6 +75,7 @@ class DetailEvents extends Component {
     };
 
     if (this.props.islogin === true) {
+      console.log(this.state.id_user);
       axios
         .post(` https://my-mysql-api.herokuapp.com/events/participate`, value, {
           headers: {
@@ -86,6 +88,42 @@ class DetailEvents extends Component {
         .catch(error => {
           console.log(error);
         });
+      // let dataforupdate = this.state.id_user;
+      // let updatedata = dataforupdate.push(this.props.userinfo.id_user);
+      // this.setState({
+      //   ...this.state,
+      //   id_user: updatedata
+      // });
+      // let cekParticipation = this.state.id_user.find(
+      //   id => id === this.props.userinfo.id_user
+      // );
+      // console.log(cekParticipation);
+      // if (cekParticipation) {
+      //   alert("Anda sudah berpartisipasi dalam event ini");
+      // } else {
+      //   axios
+      //     .post(
+      //       ` https://my-mysql-api.herokuapp.com/events/participate`,
+      //       value,
+      //       {
+      //         headers: {
+      //           "Access-Control-Allow-Origin": "*"
+      //         }
+      //       }
+      //     )
+      //     .then(result => {
+      //       alert(`Anda telah terdaftar!`);
+      //     })
+      //     .catch(error => {
+      //       console.log(error);
+      //     });
+      //   let dataforupdate = this.state.id_user;
+      //   let updatedata = dataforupdate.push(this.props.userinfo.id_user);
+      //   this.setState({
+      //     ...this.state,
+      //     id_user: updatedata
+      //   });
+      // }
     } else {
       this.props.dispatch({ type: "MODAL_LOGIN" });
     }
@@ -93,7 +131,9 @@ class DetailEvents extends Component {
 
   render() {
     console.log(this.props.match.params.id);
-    console.log(true);
+    console.log(this.props.userinfo.id_user);
+    // let cekparticipation = this.state.id_user.find(this.props.userinfo.id_user);
+    // console.log(cekparticipation);
 
     return (
       <div>
@@ -225,17 +265,15 @@ class DetailEvents extends Component {
                   </Button>
                 </Col>
                 <Col xs="6">
-                  {this.state.participate ? (
-                    <Button
-                      className="bgblooddonor"
-                      id="toggler"
-                      style={{ marginBottom: "1rem" }}
-                      onClick={this.participate}
-                      block
-                    >
-                      Ikuti event ini
-                    </Button>
-                  ) : null}
+                  <Button
+                    className="bgblooddonor"
+                    id="toggler"
+                    style={{ marginBottom: "1rem" }}
+                    onClick={this.participate}
+                    block
+                  >
+                    Ikuti event ini
+                  </Button>
                 </Col>
               </Row>
             </Col>

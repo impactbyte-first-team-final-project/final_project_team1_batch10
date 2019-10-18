@@ -1,6 +1,6 @@
 import React from "react";
 import "./about.css";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Carousel, Row, Col } from "reactstrap";
 import image from "../assets/img/blood.jpg";
 
 export default function About() {
