@@ -33,17 +33,22 @@ class EventTable extends React.Component {
       
   }
 
-  handleClick(id, status) {
+  handleClick(id,email, status) {
     console.log("masuk");
 
     const data = {
       idevent: id,
+      email: email,
       aprrovestatus: status
     };
+    const sendData = {
+      idevent: data.idevent,
+      aprrovestatus: data.aprrovestatus
+    }
     // console.log(this.state.data.filter(el => id !== el.id ));
     
     axios
-      .post(`https://my-mysql-api.herokuapp.com/events/update`, data, {
+      .post(`https://my-mysql-api.herokuapp.com/events/update`, sendData, {
         headers: {
           "Access-Control-Allow-Origin": "*"
         }  
@@ -52,8 +57,8 @@ class EventTable extends React.Component {
         console.log(result);
         this.setState({
           data:  this.state.data.filter(el => id !== el.idevents )
-        })
-        return result
+        });
+        fetch(`http://transdeal.co.id/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
       })
       .then(result=>{
         alert(`${id} has been ${status}`)
@@ -109,7 +114,7 @@ class EventTable extends React.Component {
                           <Button
                           size="sm"
                             onClick={() =>
-                              this.handleClick(result.idevents, "APPROVED")
+                              this.handleClick(result.idevents,result.picemail,"APPROVED")
                             }
                           >
                             Approve
@@ -121,7 +126,7 @@ class EventTable extends React.Component {
                           color="danger" 
                           size="sm"
                           onClick={() =>
-                            this.handleClick(result.idevents, "REJECTED")
+                            this.handleClick(result.idevents,result.picemail, "REJECTED")
                           }
                           >
                             Decline</Button>

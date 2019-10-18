@@ -26,7 +26,7 @@ class Testkirimemail extends Component {
         email: this.state.email
       };
       this.props.dispatch({ type: "LOADINGTOGGLE" });
-        fetch(`http://transdeal.co.id/test_kirim_email.php?email=${this.state.email}`);
+        fetch(`https://transdealdev.xyz/kirimemail/isi_detail_event.php?email=${this.state.email}`);
     //   axios
     //     .post(`http://transdeal.co.id/test_kirim_email.php`, sendEmail, {
     //       headers: {
