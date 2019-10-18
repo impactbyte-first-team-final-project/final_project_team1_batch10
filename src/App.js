@@ -14,6 +14,7 @@ import FormEo from "./components/formEo";
 import FormDetail from "./components/formDetail";
 import NavHeader from "./components/navheader";
 // import Stickynavbar from "./components/stickynavbar";
+import Testkirimemail from "./components/testkirimemail";
 import Footer from "./components/footer";
 import ModalLoading from "./components/loading";
 import ModalSign from "./components/modal_sign";
@@ -60,6 +61,9 @@ function App() {
             <NavHeader />
             <FormDetail />
             <Footer />
+          </Route>
+          <Route path="/sendemail">
+            <Testkirimemail />
           </Route>
         </Switch>
       </Router>
