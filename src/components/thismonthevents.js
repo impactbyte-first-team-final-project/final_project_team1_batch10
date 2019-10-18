@@ -5,13 +5,14 @@ import { withRouter} from 'react-router-dom';
 import {
   Card,
   CardImg,
+  CardHeader,
   CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
   Button
 } from "reactstrap";
-import image1 from "../assets/img/1.jpg";
+import image1 from "../assets/img/tes.jpg";
 
 class Thismonthevent extends React.Component {
     constructor(props) {
@@ -54,15 +55,18 @@ class Thismonthevent extends React.Component {
         {this.state.Thismonthevents.length > 0 && this.state.Thismonthevents.map((event,index) =>
         <div key={index}>
             <Card className="mrgtopbtm1em">
-                <CardImg top width="100%" src={event.eventpict == null ? image1 : event.eventpict} alt="Card image cap" />
+                <CardBody style={{padding:"0px"}}>
+                    <img className="fitimg" src={event.eventpict == null ? image1 : event.eventpict} alt="image" />
+                </CardBody>
                 <CardBody>
-                    <CardTitle className="testcolor" style={{ fontSize: "25px",minHeight:"4em" }}>
+                    <CardTitle className="testcolor" style={{ fontSize: "25px",minHeight:"3em" }}>
                     {event.namaevents}
                     </CardTitle>
                     <CardSubtitle
                     style={{
                         fontFamily: "Times New Roman",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
+                        minHeight:"5em"
                     }}
                     >
                     <p>
@@ -72,7 +76,7 @@ class Thismonthevent extends React.Component {
                     
                     </p>
                     </CardSubtitle>
-                    <CardText>
+                    <CardText style={{ minHeight:"3em" }}>
                     {event.eventdescription}
                     </CardText>
                     <Button block className="bgblooddonor" onClick={() => this.props.history.push({
