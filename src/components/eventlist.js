@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 import image1 from "../assets/img/1.jpg";
 import Pagination from "../components/Pagination";
+import About from "../pages/about";
 
 class Eventlist extends Component {
   state = {
@@ -67,7 +68,9 @@ class Eventlist extends Component {
     this.setState({
       input: event.target.value,
       tentangevents: this.state.allEvents.filter(post => {
-        const { eventpict, ...restPost } = post;
+        console.log(post);
+
+        const { eventpict, eventdescription, ...restPost } = post;
         return Object.keys(restPost).some(key => {
           return (
             post[key]
@@ -151,11 +154,7 @@ class Eventlist extends Component {
           </div>
           <Row>
             <Col xs="12">
-              <Card
-                style={{
-                  minHeight: "500vh"
-                }}
-              >
+              <Card>
                 <CardBody>
                   <Row>
                     {currentPosts.map(event => {
@@ -235,6 +234,22 @@ class Eventlist extends Component {
             </Col>
           </Row>
         </Container>
+        <h3
+          style={{
+            textAlign: "center",
+            fontFamily: "sans-serif",
+            fontWeight: 300,
+            fontSize: 50,
+            color: "rgb(51, 51, 51)"
+          }}
+        >
+          Testimonial
+        </h3>
+        <h5 style={{ textAlign: "center", color: "#eb3439" }}>
+          Some Recognition from our loyal participate. You can see how much they
+          love us.
+        </h5>
+        <About />
       </div>
     );
   }

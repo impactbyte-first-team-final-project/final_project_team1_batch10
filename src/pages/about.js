@@ -1,128 +1,100 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from "reactstrap";
+
 import "./about.css";
-import { Container, Row, Col } from "reactstrap";
-import image from "../assets/img/blood.jpg";
+import gambar1 from "../assets/img/masdanu.jpg";
+import gambar2 from "../assets/img/mbaksarah.jpg";
+import gambar3 from "../assets/img/masmiftah.jpg";
 
-export default function About() {
+const items = [
+  {
+    src: gambar1,
+    caption:
+      "I know feel confident enough to find high quality events and manage social responbility. Blood Donors makes all of this so much easier!. "
+  },
+  {
+    src: gambar2,
+    caption:
+      "with this website I can find out and can channel humanitarian activities by knowing what events I can take for blood donations "
+  },
+  {
+    src: gambar3,
+    caption:
+      "with this website I can find out about events related to social responbility and blood donation"
+  }
+];
+
+const About = props => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = newIndex => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  const slides = items.map(item => {
+    return (
+      <CarouselItem
+        onExiting={() => setAnimating(true)}
+        onExited={() => setAnimating(false)}
+        key={item.src}
+      >
+        <img
+          src={item.src}
+          alt={item.altText}
+          width="150"
+          height="150"
+          style={{ borderRadius: "50%", position: "relative", left: "44%" }}
+        />
+        <CarouselCaption captionText={item.caption} />
+      </CarouselItem>
+    );
+  });
+
   return (
-    <Container>
-      <div className="content" style={{ margin: 0 }}>
-        <Row>
-          <Col xs="8">
-            <img width="75%" src={image} alt="" />
-          </Col>
-          <Col xs="4">
-            <h4>Kisah Kami</h4>
-            <h1>Perjalanan Blood Donors Bersama Pendonor</h1>
-            <p>
-              Dalam satu dekade terakhir, kami menemukan berbagai tantangan di
-              sepanjang perjalanan. Untungnya, kami membina hubungan baik dengan
-              para pasien dan pendonor sehingga kami menjembatani untuk
-              melakukan kegiatan atau event yang pastinya setiap event itu ada
-              donor darah.
-            </p>
-          </Col>
-        </Row>
-        <section id="mediacover">
-          <div className="sechead">
-            <h1>Media Recognition</h1>
-          </div>
-          <div className="inner">
-            <div className="mediacol">
-              <img src={image} alt="" />
-            </div>
-            <div className="mediacol">
-              <img src={image} alt="" />
-            </div>
-            <div className="mediacol">
-              <img src={image} alt="" />
-            </div>
-            <div className="mediacol">
-              <img src={image} alt="" />
-            </div>
-            <div className="mediacol">
-              <img src={image} alt="" />
-            </div>
-          </div>
-        </section>
-        <section id="testimonials">
-          <div className="sechead">
-            <h1>Testimonials</h1>
-            <p>
-              Some recognition from our loyal customer. You can see how much
-              they love us.
-            </p>
-          </div>
-          <div id="slideshow">
-            <div className="slide-wrapper">
-              <div className="slide">
-                <img src={image} alt="" />
-                <blockquote>
-                  I now feel confident enough to find high quality tenants and
-                  manage my own properties. Impact makes all of this so much
-                  easier!
-                </blockquote>
-                <h3>Anbya</h3>
-                <p>Jakarta Selatan, Pondok Indah Square</p>
-              </div>
-              <div className="slide">
-                <img src={image} alt="" />
-                <blockquote>
-                  I now feel confident enough to find high quality tenants and
-                  manage my own properties. Impact makes all of this so much
-                  easier!
-                </blockquote>
-                <h3>Anbya</h3>
-                <p>Jakarta Selatan, Pondok Indah Square</p>
-              </div>
-              <div className="slide">
-                <img src={image} alt="" />
-                <blockquote>
-                  I now feel confident enough to find high quality tenants and
-                  manage my own properties. Impact makes all of this so much
-                  easier!
-                </blockquote>
-                <h3>Anbya</h3>
-                <p>Jakarta Selatan, Pondok Indah Square</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="coveragearea">
-          <h1>Our Team</h1>
-
-          <Row className="show-grid text-center">
-            <Col xs={12} sm={3} className="person-wrapper">
-              <img src={image} className="profile-pic" />
-              <h3>Anbya</h3>
-              <p>
-                <h3>Fullstack Developer</h3>
-              </p>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <img src={image} className="profile-pic" />
-              <h3>Arsya</h3>
-              <p>
-                <h3>Fullstack Developer</h3>
-              </p>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <img src={image} className="profile-pic" />
-              <h3>Galang</h3>
-              <p>
-                <h3>Frontend</h3>
-              </p>
-            </Col>
-            <Col xs={12} sm={3} className="person-wrapper">
-              <img src={image} className="profile-pic" />
-              <h3>Guntur</h3>
-              <p>
-                <h3>Frontend </h3>
-              </p>
-            </Col>
-          </Row>
-        </section>
-      </div>
-    </Container>
+    <Carousel
+      activeIndex={activeIndex}
+      next={next}
+      previous={previous}
+      className="carousel-height"
+    >
+      <CarouselIndicators
+        items={items}
+        activeIndex={activeIndex}
+        onClickHandler={goToIndex}
+      />
+      {slides}
+      <CarouselControl
+        direction="prev"
+        directionText="Previous"
+        onClickHandler={previous}
+      />
+      <CarouselControl
+        direction="next"
+        directionText="Next"
+        onClickHandler={next}
+      />
+    </Carousel>
   );
-}
+};
+
+export default About;
