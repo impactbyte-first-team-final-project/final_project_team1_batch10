@@ -28,7 +28,7 @@ export default function AddAdmin(props) {
         }
       })
       .then(result => {
-        alert(`Admin baru berhasil terdaftar, silahkan lakukan sign in!`)
+        alert(`Admin baru berhasil terdaftar!`)
       })
       .catch(error => {
         console.log(error);

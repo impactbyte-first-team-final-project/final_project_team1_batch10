@@ -73,7 +73,7 @@ class EventTable extends React.Component {
   render() {
     return (
       // <div>
-      <Card style={{marginRight:"1%"}}>
+      <Card >
         <CardHeader>
           <h4 style={{ fontWeight: "bold", textAlign:"center" }}>Pending Event List</h4>
         </CardHeader>
@@ -112,6 +112,7 @@ class EventTable extends React.Component {
                       <Row>
                         <Col xs={6}>
                           <Button
+                          size="sm"
                             onClick={() =>
                               this.handleClick(result.idevents,result.picemail,"APPROVED")
                             }
@@ -120,14 +121,15 @@ class EventTable extends React.Component {
                           </Button>
                         </Col>
 
-                        <Col xs={1}>
+                        <Col xs={3}>
                           <Button
                           color="danger" 
+                          size="sm"
                           onClick={() =>
                             this.handleClick(result.idevents,result.picemail, "REJECTED")
                           }
                           >
-                            Rejected</Button>
+                            Decline</Button>
                         </Col>
                       </Row>
                     </td>

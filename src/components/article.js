@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
 import {
   Container,
   FormGroup,
@@ -7,7 +7,11 @@ import {
   Input,
   FormText,
   Button,
-  Form
+  Form,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter
 } from "reactstrap";
 
 export default function Article(props) {
@@ -15,10 +19,10 @@ export default function Article(props) {
     titlearticle: "",
     bodyarticle: "",
     footerarticle: "",
-    files:""
+    files: ""
   });
 
-  console.log(value)
+  console.log(value);
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -30,13 +34,13 @@ export default function Article(props) {
     formData.append("files", value.files);
 
     axios
-      .post(`https://my-mysql-api.herokuapp.com/artikel`, formData,  {
+      .post(`https://my-mysql-api.herokuapp.com/artikel`, formData, {
         headers: {
-          "Access-Control-Allow-Origin": '*'
+          "Access-Control-Allow-Origin": "*"
         }
       })
       .then(result => {
-        alert(`Article Submit Success`)
+        alert(`Article Submit Success`);
       })
       .catch(error => {
         console.log(error);
@@ -45,12 +49,10 @@ export default function Article(props) {
 
   function handleImage(event) {
     setValue({
-      files: event.target.files[0],
+      files: event.target.files[0]
       // previewImage: URL.createObjectURL(event.target.files[0])
     });
-  };
-
-
+  }
 
   function handleChange(event) {
     setValue({
@@ -59,41 +61,57 @@ export default function Article(props) {
     });
   }
   return (
-    <Container style={{ marginBottom: "50px", padding:"0px" }}>
-      <h2 style={{ textAlign: "center", marginTop: "1%" }}>
-        Submit Event Article
-      </h2>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label for="titlearticle">Article Title</Label>
-          <Input type="textarea" name="titlearticle" onChange={handleChange} />
-        </FormGroup>
+    <Container style={{ marginBottom: "50px", padding: "0px", marginTop:"1%" }}>
+      <Card>
+        <CardHeader>
+          <h2 style={{ textAlign: "center", marginTop: "1%" }}>
+            Submit Event Article
+          </h2>
+        </CardHeader>
 
-        <FormGroup>
-          <Label for="bodyarticle">Article Body</Label>
-          <Input
-            type="textarea"
-            name="bodyarticle"
-            style={{ height: "35vh" }}
-            onChange={handleChange}
-          />
-        </FormGroup>
+        <Form onSubmit={handleSubmit}>
+          <CardBody>
+            <FormGroup>
+              <Label for="titlearticle">Article Title</Label>
+              <Input
+                type="textarea"
+                name="titlearticle"
+                onChange={handleChange}
+              />
+            </FormGroup>
 
-        <FormGroup>
-          <Label for="footerarticle">Article Footer</Label>
-          <Input type="textarea" name="footerarticle" onChange={handleChange} />
-        </FormGroup>
+            <FormGroup>
+              <Label for="bodyarticle">Article Body</Label>
+              <Input
+                type="textarea"
+                name="bodyarticle"
+                style={{ height: "35vh" }}
+                onChange={handleChange}
+              />
+            </FormGroup>
 
-        <FormGroup>
-          <Label for="picture">Upload article photo</Label>
-          <Input type="file" name="picture" onChange={handleImage} />
-          <FormText color="muted">Upload one photo</FormText>
-        </FormGroup>
+            <FormGroup>
+              <Label for="footerarticle">Article Footer</Label>
+              <Input
+                type="textarea"
+                name="footerarticle"
+                onChange={handleChange}
+              />
+            </FormGroup>
 
-        <Button className="btn-block" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+            <FormGroup>
+              <Label for="picture">Upload article photo</Label>
+              <Input type="file" name="picture" onChange={handleImage} />
+              <FormText color="muted">Upload one photo</FormText>
+            </FormGroup>
+          </CardBody>
+          <CardFooter>
+            <Button className="btn-block" onClick={handleSubmit} color='primary'>
+              Submit
+            </Button>
+          </CardFooter>
+        </Form>
+      </Card>
     </Container>
   );
 }

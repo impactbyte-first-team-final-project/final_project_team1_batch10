@@ -53,7 +53,7 @@ function App() {
           <Route path="/admin">
             <SignInAdmin />
           </Route>
-          <Route path="/adminpage">
+          <Route path="/admin-dashboard">
             <NavBarAdmin />
           </Route>
           <Route path="/formeventdetail/:id">
