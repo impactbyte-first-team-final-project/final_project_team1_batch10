@@ -58,7 +58,7 @@ class EventTable extends React.Component {
         this.setState({
           data:  this.state.data.filter(el => id !== el.idevents )
         });
-        fetch(`http://transdeal.co.id/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
+        fetch(`https://transdealdev.xyz/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
       })
       .then(result=>{
         alert(`${id} has been ${status}`)
