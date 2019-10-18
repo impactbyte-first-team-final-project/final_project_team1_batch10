@@ -62,7 +62,7 @@ class EventTable extends React.Component {
         });
       })
       .then(result=>{
-        fetch(`http://transdeal.co.id/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
+        fetch(`https://transdeal.co.id/kirimemail/isi_detail_event.php?email=${data.email}&idevent=${data.idevent}`);
       })
       .then(result=>{
         alert(`${namaevents} has been ${status}`)
