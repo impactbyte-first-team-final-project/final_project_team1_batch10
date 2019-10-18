@@ -116,14 +116,14 @@ class EventTable extends React.Component {
                     <td>{result.eooffice}</td>
                     <td>
                       <Row>
-                        <Col xs={6}>
+                        <Col xs={5}>
                           <Button
                           size="sm"
                             onClick={() =>
                               this.handleClick(result.idevents,result.picemail,"APPROVED", result.namaevents)
                             }
                           >
-                            Approve
+                            App
                           </Button>
                         </Col>
 
@@ -135,7 +135,7 @@ class EventTable extends React.Component {
                             this.handleClick(result.idevents,result.picemail, "REJECTED",result.namaevents)
                           }
                           >
-                            Decline</Button>
+                            Dec</Button>
                         </Col>
                       </Row>
                     </td>
