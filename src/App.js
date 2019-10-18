@@ -57,7 +57,9 @@ function App() {
             <NavBarAdmin />
           </Route>
           <Route path="/formeventdetail/:id">
+            <NavHeader />
             <FormDetail />
+            <Footer />
           </Route>
         </Switch>
       </Router>
