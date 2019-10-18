@@ -179,3 +179,8 @@
   top: 0;
   width: 100%;
 }
+.fitimg{
+  object-fit: fill;
+  height: 200px;
+  width: 100%;
+}
