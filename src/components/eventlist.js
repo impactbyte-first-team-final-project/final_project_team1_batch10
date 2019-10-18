@@ -151,11 +151,7 @@ class Eventlist extends Component {
           </div>
           <Row>
             <Col xs="12">
-              <Card
-                style={{
-                  minHeight: "500vh"
-                }}
-              >
+              <Card>
                 <CardBody>
                   <Row>
                     {currentPosts.map(event => {
