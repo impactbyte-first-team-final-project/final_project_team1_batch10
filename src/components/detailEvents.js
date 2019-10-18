@@ -68,8 +68,23 @@ class DetailEvents extends Component {
   };
 
   participate = () => {
+    const value = {
+      idevents: this.state.idevents,
+      id_user: this.state.id_user
+    };
     if (this.props.islogin === true) {
-      alert("Anda mengikuti event ini");
+      axios
+        .post(` https://my-mysql-api.herokuapp.com/events/participate`, value, {
+          headers: {
+            "Access-Control-Allow-Origin": "*"
+          }
+        })
+        .then(result => {
+          alert(`Anda telah terdaftar!`);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     } else {
       this.props.dispatch({ type: "MODAL_LOGIN" });
     }
