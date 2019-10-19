@@ -127,7 +127,7 @@ class Upcomingevent extends React.Component {
                     </CardText>
                     <Button
                       block
-                      className="bgblooddonor"
+                      className="bgblooddonors"
                       onClick={() =>
                         this.props.history.push({
                           pathname: `/eventdetail/${event.idevents}`,

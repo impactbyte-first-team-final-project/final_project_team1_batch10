@@ -123,7 +123,7 @@ class Eventlist extends Component {
               </CardText>
               <Button
                 block
-                className="bgblooddonor"
+                className="bgblooddonors"
                 onClick={() =>
                   this.props.history.push({
                     pathname: `/eventdetail/${event.idevents}`,
@@ -206,7 +206,7 @@ class Eventlist extends Component {
                               </CardText>
                               <Button
                                 block
-                                className="bgblooddonor"
+                                className="bgblooddonors"
                                 onClick={() =>
                                   this.props.history.push({
                                     pathname: `/eventdetail/${event.idevents}`,

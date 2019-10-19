@@ -318,7 +318,7 @@ class DetailEvents extends Component {
               <Row>
                 <Col xs="6">
                   <Button
-                    className="bgblooddonor"
+                    className="bgblooddonors"
                     id="toggler"
                     style={{ marginBottom: "1rem" }}
                     onClick={this.backtohome}
@@ -329,7 +329,7 @@ class DetailEvents extends Component {
                 </Col>
                 <Col xs="6">
                   <Button
-                    className="bgblooddonor"
+                    className="bgblooddonors"
                     id="toggler"
                     style={{ marginBottom: "1rem" }}
                     onClick={this.participate}
