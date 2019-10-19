@@ -81,10 +81,11 @@ class EventTable extends React.Component {
         <CardHeader>
           <h4 style={{ fontWeight: "bold", textAlign:"center" }}>Pending Event List</h4>
         </CardHeader>
-        <CardBody> 
+        <CardBody style={{width:"100%",overflowX:"scroll",overflowY:"hidden"}}> 
           <Table bordered >
             <thead >
               <tr style={{textAlign:"center"}}>
+                <th>Tools</th>
                 <th>ID</th>
                 <th>Event Name</th>
                 <th>Event Address</th>
@@ -96,27 +97,15 @@ class EventTable extends React.Component {
                 <th>EO PIC</th>
                 <th>PIC Phone</th>
                 <th>EO Address</th>
-                <th>Tools</th>
               </tr>
             </thead>
             <tbody>
               {this.state.data.map(result => {
                 return (
                   <tr>
-                    <td>{result.idevents}</td>
-                    <td>{result.eventlocation}</td>
-                    <td>{result.namaevents}</td>
-                    <td>{result.startdateevents}</td>
-                    <td>{result.enddateevents}</td>
-                    <td>{result.starttimeevents}</td>
-                    <td>{result.endtimeevents}</td>
-                    <td>{result.eoname}</td>
-                    <td>{result.pic}</td>
-                    <td>{result.picphone}</td>
-                    <td>{result.eooffice}</td>
                     <td>
                       <Row>
-                        <Col xs={5}>
+                        <Col xs={12}>
                           <Button
                           size="sm"
                             onClick={() =>
@@ -127,7 +116,7 @@ class EventTable extends React.Component {
                           </Button>
                         </Col>
 
-                        <Col xs={3}>
+                        <Col xs={12}>
                           <Button
                           color="danger" 
                           size="sm"
@@ -139,6 +128,17 @@ class EventTable extends React.Component {
                         </Col>
                       </Row>
                     </td>
+                    <td>{result.idevents}</td>
+                    <td>{result.eventlocation}</td>
+                    <td>{result.namaevents}</td>
+                    <td>{result.startdateevents}</td>
+                    <td>{result.enddateevents}</td>
+                    <td>{result.starttimeevents}</td>
+                    <td>{result.endtimeevents}</td>
+                    <td>{result.eoname}</td>
+                    <td>{result.pic}</td>
+                    <td>{result.picphone}</td>
+                    <td>{result.eooffice}</td>
                   </tr>
                 );
               })}

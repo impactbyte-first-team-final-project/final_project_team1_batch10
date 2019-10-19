@@ -35,8 +35,12 @@ class NavHeader extends React.Component {
       return (
         <div>
           <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{ color: "#fff" }}>
-              BLOODDONORS
+            <NavbarBrand href="/" style={{ color: "#fff",width:"7%" }}>
+                  <img
+                    className="fullwidht"
+                    src={"https://transdeal.co.id/multer-image-upload/blooddonors_square_white.png"}
+                    alt="fit"
+                  />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
@@ -66,8 +70,12 @@ class NavHeader extends React.Component {
       return (
         <div>
           <Navbar className="bgblooddonor" color="light" light expand="md">
-            <NavbarBrand href="/" style={{ color: "#fff" }}>
-              BLOODDONORS
+            <NavbarBrand href="/" style={{ color: "#fff",width:"7%"  }}>
+                  <img
+                    className="fullwidht"
+                    src={"https://transdeal.co.id/multer-image-upload/blooddonors_square_white.png"}
+                    alt="fit"
+                  />
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>

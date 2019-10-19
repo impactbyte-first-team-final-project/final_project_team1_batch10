@@ -63,7 +63,7 @@ const NavBarAdmin = props => {
               </ListGroupItem>
             </ListGroup>
           </Col>
-          <Col xs="11">
+          <Col xs="12">
             <Switch>
               <Route exact path="/admin-dashboard/approve">
                 <EventTable />
